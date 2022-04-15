@@ -24,3 +24,14 @@ export const FETCH_BOARDS = gql`
     }
   }
 `;
+
+export const BEST_BOARDS = gql`
+  query fetchBoardsOfTheBest {
+    fetchBoardsOfTheBest {
+      _id
+      writer
+      title
+      contents
+    }
+  }
+`;
