@@ -17,3 +17,17 @@ export const ShoppingImage = styled.img`
   width: 260px;
   width: 120px;
 `;
+
+export const SearchWrapper = styled.div`
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: green; */
+  margin: 10px;
+`;
+
+export const SearchInput = styled.input`
+  width: 700px;
+  height: 40px;
+  padding: 6px;
+`;

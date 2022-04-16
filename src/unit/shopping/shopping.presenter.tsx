@@ -5,10 +5,20 @@ export default function ShoppingUI(props) {
   return (
     <S.Wrapper>
       <div> Hello World</div>
-      <button onClick={() => alert("testing")}>Click Here</button>
+      <S.SearchWrapper>
+        <S.SearchInput placeholder="search" onChange={props.onChangeKeyword} />
+        <button onClick={props.onClickShoppingList}>Click Here</button>
+      </S.SearchWrapper>
       {props.list.map((el) => (
         <S.ListWrapper key={uuidv4()}>
-          <div>{el.item}</div>
+          <div>
+            {el.item
+              .replaceAll(props.keyword, `@#$%${props.keyword}@#$%`)
+              .split("@#$%")
+              .map((el) => (
+                <div key={uuidv4()}>{el}</div>
+              ))}
+          </div>
           <div>{el.color}</div>
           <div>{el.price}</div>
           <S.ShoppingImage src={el.image} />
