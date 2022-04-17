@@ -14,6 +14,8 @@ interface PropsDebounceUI {
   onClickPagination: (event: ChangeEvent<HTMLSpanElement>) => void;
   bestBoards?: Pick<IQuery, "fetchBoardsOfTheBest">;
   isMatched: boolean;
+  commentsData?: any;
+  onClickTest: () => void;
 }
 
 const MyWord = styled.span`
@@ -85,6 +87,19 @@ export default function DebounceUI(props: PropsDebounceUI) {
           <div>{el.contents}</div>
         </div>
       ))}
+      <div>===============================================================</div>
+      <div>Hello World</div>
+      <button onClick={props.onClickTest}>Board Comments</button>
+      {props.commentsData?.fetchBoardComments.map((el, index) => (
+        <div key={uuidv4()}>
+          <div>{index + 1}</div>
+          <div>{el._id}</div>
+          <div>{el.writer}</div>
+          <div>{el.contents}</div>
+        </div>
+      ))}
+      <div>{props.commentsData?.fetchBoardComments.writer}</div>
+      <div>{props.commentsData?.fetchBoardComments.contents}</div>
     </S.Wrapper>
   );
 }

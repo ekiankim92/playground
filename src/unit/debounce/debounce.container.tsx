@@ -1,7 +1,11 @@
 import DebounceUI from "./debounce.presenter";
 import _ from "lodash";
 import { ChangeEvent, useState } from "react";
-import { FETCH_BOARDS, BEST_BOARDS } from "./debounce.queries";
+import {
+  FETCH_BOARDS,
+  BEST_BOARDS,
+  FETCH_BOARD_COMMENTS,
+} from "./debounce.queries";
 import { useQuery } from "@apollo/client";
 import {
   IQuery,
@@ -15,6 +19,8 @@ export default function Debounce() {
   >(FETCH_BOARDS);
 
   const { data: bestBoards } = useQuery(BEST_BOARDS);
+
+  const { data: commentsData } = useQuery(FETCH_BOARD_COMMENTS);
 
   const [text, setText] = useState("");
 
@@ -50,6 +56,12 @@ export default function Debounce() {
     console.log("keyword:", keyword);
   };
 
+  const onClickTest = () => {
+    console.log(commentsData?.fetchBoardComments.writer);
+    console.log(commentsData?.fetchBoardComments._id);
+    console.log(commentsData);
+  };
+
   return (
     <DebounceUI
       text={text}
@@ -59,7 +71,9 @@ export default function Debounce() {
       keyword={keyword}
       onChangeKeyword={onChangeKeyword}
       onClickPagination={onClickPagination}
+      onClickTest={onClickTest}
       bestBoards={bestBoards}
+      commentsData={commentsData}
     />
   );
 }
