@@ -25,6 +25,14 @@ export default function WeatherUI(props) {
       <button onClick={props.SubwayTime}>Weather Description</button>
       <div>============================================================</div>
       <div>Weather Information</div>
+      <div>
+        {Math.floor(props.seoulWeather?.main?.temp - Number(274))} Celsius
+      </div>
+      <div>
+        {Math.floor(props.seoulWeather?.main?.feels_like - Number(274))} Celsius
+      </div>
+      <div>{props.seoulWeather?.coord?.lat}</div>
+      <div>{props.seoulWeather?.coord?.lon}</div>
       {/* {props.seoulWeather.map((el) => (
         <div key={uuid4()}>
           <div>{el.name}</div>
