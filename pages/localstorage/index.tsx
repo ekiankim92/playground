@@ -19,9 +19,14 @@ const LocalStoragePage = () => {
   const [color, setColor] = useState(false);
   const [keywords, setKeywords] = useState("");
 
-  const onChangeKeywords = _.debounce((event) => {
+  // const onChangeKeywords = _.debounce((event) => {
+  //   setKeywords(event.target.value);
+  // }, 400);
+
+  const onChangeKeywords = (event) => {
     setKeywords(event.target.value);
-  }, 400);
+    console.log(event.target.value);
+  };
 
   const onClickSetItem = () => {
     setColor((prev) => !prev);
