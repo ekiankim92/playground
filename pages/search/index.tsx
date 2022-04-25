@@ -1,4 +1,6 @@
+import Search from "../../src/unit/search/search.container";
+
 const SearchPage = () => {
-  return <div />;
+  return <Search />;
 };
 export default SearchPage;

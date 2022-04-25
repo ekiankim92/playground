@@ -29,8 +29,10 @@ export default function JsonPlaceholder() {
       <div>Hello World</div>
       {users.map((el) => (
         <div key={el}>
+          <span>{el.id}</span> <br />
           <span>{el.name}</span>
           <span>{el.username}</span>
+          <span>{el.address.city}</span>
           <br />
           <br />
         </div>
