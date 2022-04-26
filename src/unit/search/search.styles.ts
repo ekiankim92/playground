@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 600px;
-  height: 600px;
+  height: 1200px;
   border: 1px solid #000;
-  margin: 60px auto;
+  margin: 120px auto;
 `;
 
 export const SearchBarWrapper = styled.div`
