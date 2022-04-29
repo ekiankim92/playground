@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Wrapper = styled.div`
   width: 600px;
   height: 600px;
@@ -36,6 +36,16 @@ const KoreanJsonAxois = () => {
   //     multipleKoreanLaw()
   //   ))
   // }
+
+  // useEffect(() => {
+  //   const testing = async () => {
+  //     const result = await axios.get(
+  //       "https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWEUR"
+  //     );
+  //     console.log(result.data);
+  //   };
+  //   testing();
+  // }, []);
 
   return (
     <Wrapper>

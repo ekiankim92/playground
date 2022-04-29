@@ -33,6 +33,7 @@ export default function JsonPlaceholder() {
           <span>{el.name}</span>
           <span>{el.username}</span>
           <span>{el.address.city}</span>
+          <span>{el.email}</span>
           <br />
           <br />
         </div>
