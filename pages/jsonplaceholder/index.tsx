@@ -15,11 +15,15 @@ export default function JsonPlaceholder() {
   useEffect(() => {
     const getUsers = async () => {
       const result = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
+        // "https://jsonplaceholder.typicode.com/users"
+        // " https://foodish-api.herokuapp.com/images/rice/rice29.jpg"
+        "./SearchJson.json"
       );
       setUsers(result.data);
-      console.log("result:", result);
-      console.log("result.data:", result.data);
+      // setUsers(result.data.product.images[0]);
+      // console.log("result:", result);
+      // console.log("reulst.data.product.images:", result.data.product.images);
+      // console.log("result.data:", result.data);
     };
     getUsers();
   }, []);
@@ -27,7 +31,7 @@ export default function JsonPlaceholder() {
   return (
     <Wrapper>
       <div>Hello World</div>
-      {users.map((el) => (
+      {/* {users.map((el) => (
         <div key={el}>
           <span>{el.id}</span> <br />
           <span>{el.name}</span>
@@ -37,7 +41,10 @@ export default function JsonPlaceholder() {
           <br />
           <br />
         </div>
-      ))}
+      ))} */}
+      <img src={users} />
+      {/* <div>{users}</div> */}
+      {/* <div>{users}</div> */}
     </Wrapper>
   );
 }
