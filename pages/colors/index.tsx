@@ -1,4 +1,6 @@
+import Colors from "../../src/unit/colors/colors.container";
+
 const ColorsPage = () => {
-  return <div />;
+  return <Colors />;
 };
 export default ColorsPage;
