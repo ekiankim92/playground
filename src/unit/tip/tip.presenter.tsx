@@ -6,6 +6,8 @@ export default function TipCalculatorUI(props: PropsTipCalculator) {
     <S.Wrapper>
       <S.CalculatorWrapper>
         <S.Title>Tip Calculator</S.Title>
+        <input type="text" onChange={props.onChangeTest} />
+        <input value={props.test} readOnly />
         <S.CostWrapper>
           <S.DollarImg src="/dollar.png/" />
           <S.CostInput
@@ -27,11 +29,11 @@ export default function TipCalculatorUI(props: PropsTipCalculator) {
           <h3>Result</h3>
           <S.AmountWrapper>
             <S.AmountLabel>Tip Amount</S.AmountLabel>
-            <S.AmountLabelInput type="text" readOnly />
+            <S.AmountLabelInput type="text" value={props.tipAmount} readOnly />
           </S.AmountWrapper>
           <S.TipWrapper>
             <S.TipLabel>Total Bill with Tip</S.TipLabel>
-            <S.TipLabelInput type="text" readOnly />
+            <S.TipLabelInput type="text" value={props.totalAmount} readOnly />
           </S.TipWrapper>
         </S.ResultWrapper>
       </S.CalculatorWrapper>
