@@ -40,9 +40,27 @@ const UserInfoUI = (props) => {
             </S.CancelBtn>
           )}
         </S.EmailWrapper>
-        <label>
-          Mobile#<S.Asterix>*</S.Asterix>
-        </label>
+        <S.MobileWrapper>
+          <S.MobileLabel>
+            Mobile#<S.Asterix>*</S.Asterix>
+          </S.MobileLabel>
+          <S.AreaCodeInput value="+82" />
+          <S.DownArrowImg src="/down.png/" />
+          {/* <input list="phone" />
+          <datalist id="phone">
+            <option value="South Korea (+82)" />
+            <option value="United State (+1)" />
+            <option value="Spain (+22)" />
+            <option value="Sudan (+249)" />
+          </datalist> */}
+          <S.PhoneNumberInput
+            type="text"
+            placeholder="Mobile#"
+            onChange={props.onChangeNumber}
+            pattern="[0-9]+"
+          />
+          <S.VerifyButton type="submit" value="Verify" />
+        </S.MobileWrapper>
         <label>
           Verification Code<S.Asterix>*</S.Asterix>
         </label>

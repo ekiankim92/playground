@@ -47,7 +47,7 @@ export const Name = styled.label`
 
 export const NameInput = styled.input`
   font-size: 20px;
-  width: 400px;
+  width: 500px;
   border: none;
   border-bottom: 1px solid #d3d3d3;
   :focus {
@@ -85,7 +85,7 @@ export const Email = styled.label`
 
 export const EmailInput = styled.input`
   font-size: 20px;
-  width: 400px;
+  width: 500px;
   border: none;
   border-bottom: 1px solid #d3d3d3;
   :focus {
@@ -94,5 +94,58 @@ export const EmailInput = styled.input`
   }
   ::placeholder {
     opacity: 0.3;
+  }
+`;
+
+export const MobileWrapper = styled.form`
+  display: flex;
+  align-items: center;
+`;
+
+export const MobileLabel = styled.label`
+  width: 10%;
+  margin: 22px;
+  font-size: 20px;
+`;
+
+export const AreaCodeInput = styled.input`
+  font-size: 18px;
+  width: 60px;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid #d3d3d3;
+  :focus {
+    outline: none;
+    border-bottom: 1px solid #000;
+  }
+`;
+
+export const DownArrowImg = styled.img`
+  width: 10px;
+  height: 10px;
+`;
+
+export const PhoneNumberInput = styled.input`
+  font-size: 20px;
+  width: 260px;
+  height: 50px;
+  border: none;
+  border-bottom: 1px solid #d3d3d3;
+  margin-left: 22px;
+  :focus {
+    outline: none;
+    border-bottom: 1px solid #000;
+  }
+`;
+
+export const VerifyButton = styled.input`
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  :hover {
+    cursor: pointer;
   }
 `;

@@ -7,6 +7,7 @@ const UserInfo = () => {
   const [isEmailCancel, setIsEmailCancel] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [number, setNumber] = useState(0);
   const inputRef = useRef(null);
   const emailRef = useRef(null);
 
@@ -27,6 +28,11 @@ const UserInfo = () => {
       setIsEmailCancel(false);
     }
     setEmail(event.target.value);
+    console.log(event.target.value);
+  };
+
+  const onChangeNumber = (event) => {
+    setNumber(event.target.value);
     console.log(event.target.value);
   };
 
@@ -60,6 +66,7 @@ const UserInfo = () => {
       handleEmailReset={handleEmailReset}
       onChangeEmail={onChangeEmail}
       onClickEmailClear={onClickEmailClear}
+      onChangeNumber={onChangeNumber}
     />
   );
 };
