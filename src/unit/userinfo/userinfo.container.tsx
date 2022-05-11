@@ -32,6 +32,8 @@ const UserInfo = () => {
   };
 
   const onChangeNumber = (event) => {
+    const phoneNumber = event.target.value.slice(0, 12);
+
     setNumber(event.target.value);
     console.log(event.target.value);
   };
