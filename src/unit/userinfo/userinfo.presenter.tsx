@@ -46,6 +46,14 @@ const UserInfoUI = (props) => {
           </S.MobileLabel>
           <S.AreaCodeInput value="+82" />
           <S.DownArrowImg src="/down.png/" />
+          {/* ///////////////////////////////////////////////// */}
+          {/* Drop Down Options */}
+          {/* <select name="areacode">
+            <option value="South Korea (+82)">South Korea {"82"}</option>
+            <option value="United State (+1)">United State {"+1"}</option>
+            <option value="Spain (+22)">Spain {"+22"}</option>
+            <option value="Sudan (+249)">Sudan {"+249"}</option>
+          </select> */}
           {/* <input list="phone" />
           <datalist id="phone">
             <option value="South Korea (+82)" />
@@ -53,6 +61,7 @@ const UserInfoUI = (props) => {
             <option value="Spain (+22)" />
             <option value="Sudan (+249)" />
           </datalist> */}
+          {/* ///////////////////////////////////////////////// */}
           <S.PhoneNumberInput
             type="text"
             placeholder="Mobile#"
