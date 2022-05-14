@@ -70,9 +70,11 @@ const UserInfoUI = (props) => {
           />
           <S.VerifyButton type="submit" value="Verify" />
         </S.MobileWrapper>
-        <label>
-          Verification Code<S.Asterix>*</S.Asterix>
-        </label>
+        <S.VerificationWrapper>
+          <S.VerificationLabel>
+            Verification Code<S.Asterix>*</S.Asterix>
+          </S.VerificationLabel>
+        </S.VerificationWrapper>
         <label>
           Actual User<S.Asterix>*</S.Asterix>
         </label>
