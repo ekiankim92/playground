@@ -156,7 +156,6 @@ export const VerificationWrapper = styled.div`
 `;
 
 export const VerificationLabel = styled.label`
-  /* width: 10%; */
   margin: 22px;
   font-size: 20px;
 `;

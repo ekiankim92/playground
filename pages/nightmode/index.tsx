@@ -3,16 +3,21 @@ import { Switch } from "antd";
 import "antd/dist/antd.css";
 import { useState } from "react";
 
+interface IProps {
+  isNight?: boolean;
+}
+
 const Wrapper = styled.div`
   width: 600px;
   height: 600px;
   border: 1px solid #000;
   margin: 60px auto;
-  background-color: ${(props) => (props.isNight ? "#fff" : "#000")};
+  background-color: ${(props: IProps) => (props.isNight ? "#fff" : "#000")};
 `;
 
 const Title = styled.h3`
   margin: 12px;
+  color: ${(props: IProps) => (props.isNight ? "#000" : "#fff")};
 `;
 
 const ToggleWrapper = styled.div`
@@ -31,6 +36,10 @@ const ParagraphWrapper = styled.div`
   line-height: 32px;
 `;
 
+const Main = styled.p`
+  color: ${(props: IProps) => (props.isNight ? "#000" : "#fff")};
+`;
+
 const NightMode = () => {
   const [isNight, setIsNight] = useState(false);
 
@@ -42,16 +51,16 @@ const NightMode = () => {
   return (
     <Wrapper isNight={isNight}>
       <TitleWrapper>
-        <Title>Night/Day Mode Toggle</Title>
+        <Title isNight={isNight}>Night/Day Mode Toggle</Title>
         <ToggleWrapper>
           <Switch defaultChecked onChange={onChangeToggle} />
         </ToggleWrapper>
       </TitleWrapper>
       <ParagraphWrapper>
-        <p>
+        <Main isNight={isNight}>
           Click on the moon in the upper-right corner to change to night mode.
           Click again o the sun to change back to day mode.
-        </p>
+        </Main>
       </ParagraphWrapper>
     </Wrapper>
   );
