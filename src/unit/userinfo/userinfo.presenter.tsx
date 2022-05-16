@@ -74,10 +74,39 @@ const UserInfoUI = (props) => {
           <S.VerificationLabel>
             Verification Code<S.Asterix>*</S.Asterix>
           </S.VerificationLabel>
+          <S.CodeWrapper>
+            <S.CodeInput
+              type="text"
+              placeholder="Please enter the verification num"
+            />
+            <S.TextCode>Click if you didn&apos;t receive the text?</S.TextCode>
+          </S.CodeWrapper>
+          <S.RvdCodeInput />
         </S.VerificationWrapper>
-        <label>
-          Actual User<S.Asterix>*</S.Asterix>
-        </label>
+        <S.ActualUserWrapper>
+          <S.ActualUserLabel>
+            Actual User<S.Asterix>*</S.Asterix>
+            <S.ActualUserInput
+              type="text"
+              placeholder="Please enter your name."
+            />
+          </S.ActualUserLabel>
+        </S.ActualUserWrapper>
+        <S.CheckBoxWrapper>
+          <S.CheckBox type="checkbox" />
+          <div>Same as the booker</div>
+        </S.CheckBoxWrapper>
+        <S.ParagraphWrapper>
+          <S.FirstParagraph>
+            Please enter the name of the customer who will be using BUXI for car
+            rental insurance!
+          </S.FirstParagraph>
+          <S.SecondParagraph>
+            Your name must be the same as the name on your ID (such as your
+            national ID card or passport), or you can not get insurance
+            coverage.
+          </S.SecondParagraph>
+        </S.ParagraphWrapper>
       </S.UserWrapper>
     </S.Wrapper>
   );
