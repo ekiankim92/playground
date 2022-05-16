@@ -8,8 +8,10 @@ const UserInfo = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState(0);
+  const [count, setCount] = useState("");
   const inputRef = useRef(null);
   const emailRef = useRef(null);
+  const bookerRef = useRef(null);
 
   const onChangeName = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.value) {
@@ -54,6 +56,20 @@ const UserInfo = () => {
     emailRef.current.value = "";
   };
 
+  const onClickBooker = (checked) => {
+    bookerRef.current.value = name;
+    // const empty = (bookerRef.current.value = "");
+
+    // if (!name) {
+    //   alert("there is no name");
+    //   return empty;
+    // }
+
+    console.log(checked);
+  };
+
+  const onClickVerify = () => {};
+
   return (
     <UserInfoUI
       isEmailCancel={isEmailCancel}
@@ -61,6 +77,7 @@ const UserInfo = () => {
       name={name}
       inputRef={inputRef}
       emailRef={emailRef}
+      bookerRef={bookerRef}
       email={email}
       onChangeName={onChangeName}
       onClickClear={onClickClear}
@@ -69,6 +86,8 @@ const UserInfo = () => {
       onChangeEmail={onChangeEmail}
       onClickEmailClear={onClickEmailClear}
       onChangeNumber={onChangeNumber}
+      onClickBooker={onClickBooker}
+      onClickVerify={onClickVerify}
     />
   );
 };

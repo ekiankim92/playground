@@ -68,7 +68,12 @@ const UserInfoUI = (props) => {
             onChange={props.onChangeNumber}
             pattern="[0-9]+"
           />
-          <S.VerifyButton type="submit" value="Verify" />
+          <S.VerifyButton
+            type="submit"
+            value="Verify"
+            onClick={props.onClickVerify}
+          />
+          <span>Timer</span>
         </S.MobileWrapper>
         <S.VerificationWrapper>
           <S.VerificationLabel>
@@ -89,11 +94,12 @@ const UserInfoUI = (props) => {
             <S.ActualUserInput
               type="text"
               placeholder="Please enter your name."
+              ref={props.bookerRef}
             />
           </S.ActualUserLabel>
         </S.ActualUserWrapper>
         <S.CheckBoxWrapper>
-          <S.CheckBox type="checkbox" />
+          <S.CheckBox type="checkbox" onChange={props.onClickBooker} />
           <div>Same as the booker</div>
         </S.CheckBoxWrapper>
         <S.ParagraphWrapper>
