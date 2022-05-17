@@ -194,6 +194,9 @@ export const RvdCodeInput = styled.input`
   margin-left: 66px;
   border: none;
   border-bottom: 1px solid #d3d3d3;
+  :focus {
+    outline: none;
+  }
 `;
 
 export const ActualUserWrapper = styled.div`
@@ -214,7 +217,7 @@ export const ActualUserInput = styled.input`
   border: none;
   border-bottom: 1px solid #d3d3d3;
   margin-left: 26px;
-  :focus {
+  RvdCodeInput :focus {
     outline: none;
     border-bottom: 1px solid #000;
   }

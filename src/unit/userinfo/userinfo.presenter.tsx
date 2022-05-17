@@ -44,7 +44,7 @@ const UserInfoUI = (props) => {
           <S.MobileLabel>
             Mobile#<S.Asterix>*</S.Asterix>
           </S.MobileLabel>
-          <S.AreaCodeInput value="+82" />
+          <S.AreaCodeInput value="+82" readOnly />
           <S.DownArrowImg src="/down.png/" />
           {/* ///////////////////////////////////////////////// */}
           {/* Drop Down Options */}
@@ -74,6 +74,9 @@ const UserInfoUI = (props) => {
             onClick={props.onClickVerify}
           />
           <span>Timer</span>
+          {/* <span>{props.count}</span> */}
+          <span>{props.min}</span>
+          <span>{props.sec}</span>
         </S.MobileWrapper>
         <S.VerificationWrapper>
           <S.VerificationLabel>

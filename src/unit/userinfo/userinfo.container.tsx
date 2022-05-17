@@ -8,7 +8,8 @@ const UserInfo = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [number, setNumber] = useState(0);
-  const [count, setCount] = useState("");
+  const [min, setMin] = useState(0);
+  const [sec, setSec] = useState(0);
   const inputRef = useRef(null);
   const emailRef = useRef(null);
   const bookerRef = useRef(null);
@@ -68,7 +69,34 @@ const UserInfo = () => {
     console.log(checked);
   };
 
-  const onClickVerify = () => {};
+  const onClickVerify = () => {
+    // let time = 180;
+    // const interval = setInterval(() => {
+    //   const minutes = Math.floor(time / 60);
+    //   const seconds = String(time % 60).padStart(2, "0");
+    //   if (time <= 0) {
+    //     return;
+    //   }
+    //   time -= 1;
+    //   return `${minutes}:${seconds}`;
+    // }, 1000);
+    // setCount(interval);
+    // console.log(interval);
+    const interval = setInterval(() => {
+      let time = 180;
+
+      const minutes = Math.floor(time / 60);
+      const seconds = Number(String(time % 60).padStart(2, "0"));
+
+      setMin(minutes);
+      setSec(seconds);
+      time -= 1;
+
+      if (time <= 0) {
+        return 0;
+      }
+    }, 1000);
+  };
 
   return (
     <UserInfoUI
@@ -79,6 +107,9 @@ const UserInfo = () => {
       emailRef={emailRef}
       bookerRef={bookerRef}
       email={email}
+      // count={count}
+      min={min}
+      sec={sec}
       onChangeName={onChangeName}
       onClickClear={onClickClear}
       handleReset={handleReset}
