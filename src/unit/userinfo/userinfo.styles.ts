@@ -217,7 +217,7 @@ export const ActualUserInput = styled.input`
   border: none;
   border-bottom: 1px solid #d3d3d3;
   margin-left: 26px;
-  RvdCodeInput :focus {
+  :focus {
     outline: none;
     border-bottom: 1px solid #000;
   }

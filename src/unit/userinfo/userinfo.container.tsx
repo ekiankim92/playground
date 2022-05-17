@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import UserInfoUI from "./userinfo.presenter";
 import _ from "lodash";
 
@@ -13,6 +13,8 @@ const UserInfo = () => {
   const inputRef = useRef(null);
   const emailRef = useRef(null);
   const bookerRef = useRef(null);
+  const [minutes, setMinutes] = useState(2);
+  const [seconds, setSeconds] = useState(0);
 
   const onChangeName = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.value) {
@@ -82,21 +84,36 @@ const UserInfo = () => {
     // }, 1000);
     // setCount(interval);
     // console.log(interval);
-    const interval = setInterval(() => {
-      let time = 180;
-
-      const minutes = Math.floor(time / 60);
-      const seconds = Number(String(time % 60).padStart(2, "0"));
-
-      setMin(minutes);
-      setSec(seconds);
-      time -= 1;
-
-      if (time <= 0) {
-        return 0;
-      }
-    }, 1000);
+    // //////////////////////////////////////////////////
+    // const interval = setInterval(() => {
+    //   let time = 180;
+    //   const minutes = Math.floor(time / 60);
+    //   const seconds = Number(String(time % 60).padStart(2, "0"));
+    //   setMin(minutes);
+    //   setSec(seconds);
+    //   time -= 1;
+    //   if (time <= 0) {
+    //     return 0;
+    //   }
+    // }, 1000);
   };
+
+  useEffect(() => {
+    const countdown = setInterval(() => {
+      if (parseInt(seconds) > 0) {
+        setSeconds(parseInt(seconds) - 1);
+      }
+      if (parseInt(seconds) === 0) {
+        if (parseInt(minutes) === 0) {
+          clearInterval(countdown);
+        } else {
+          setMinutes(parseInt(minutes) - 1);
+          setSeconds(59);
+        }
+      }
+    }, 10);
+    return () => clearInterval(countdown);
+  }, [minutes, seconds]);
 
   return (
     <UserInfoUI
@@ -110,6 +127,8 @@ const UserInfo = () => {
       // count={count}
       min={min}
       sec={sec}
+      minutes={minutes}
+      seconds={seconds}
       onChangeName={onChangeName}
       onClickClear={onClickClear}
       handleReset={handleReset}

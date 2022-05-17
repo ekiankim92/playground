@@ -75,8 +75,10 @@ const UserInfoUI = (props) => {
           />
           <span>Timer</span>
           {/* <span>{props.count}</span> */}
-          <span>{props.min}</span>
-          <span>{props.sec}</span>
+          {/* <span>{props.min}</span> */}
+          {/* <span>{props.sec}</span> */}
+          <div>{props.minutes}</div>
+          <div>{props.seconds}</div>
         </S.MobileWrapper>
         <S.VerificationWrapper>
           <S.VerificationLabel>
