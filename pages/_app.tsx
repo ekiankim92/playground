@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   const uploadLink = createUploadLink({
-    uri: "https://backend05.codebootcamp.co.kr/graphql",
+    uri: "https://backend06.codebootcamp.co.kr/graphql",
     headers: { authorization: `Bearer ${myAccessToken}` },
     credentials: "include",
   });
