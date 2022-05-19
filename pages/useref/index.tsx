@@ -81,8 +81,11 @@ const UseRefPage = () => {
     email: "",
     password: "",
   });
+
   const [createUser] = useMutation(CREATE_USER);
+
   const { name, email, password } = inputs;
+
   const nameRef = useRef(null);
   const changeRef = useRef(null);
   const disableRef = useRef(null);

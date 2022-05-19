@@ -12,6 +12,7 @@ import { AppProps } from "next/dist/shared/lib/router/router";
 interface IGlobalConText {
   accessToken?: string;
   setAccessToken?: Dispatch<SetStateAction<string>>;
+  isContext?: boolean;
 }
 
 export const GlobalContext = createContext<IGlobalConText>({});
@@ -23,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     setAccessToken: setMyAccessToken,
     isEdit: false,
     isOpen: false,
+    isContext: false,
   };
 
   const uploadLink = createUploadLink({
