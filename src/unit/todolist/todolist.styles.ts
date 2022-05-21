@@ -1,16 +1,9 @@
 import styled from "@emotion/styled";
-import { PropsHide } from "./todo.types";
-
-export const HideButton = styled.button`
-  width: 120px;
-  height: 46px;
-`;
 
 export const Wrapper = styled.div`
   width: 1000px;
   border: 1px solid #000;
   margin: 0px auto;
-  visibility: ${(props: PropsHide) => (props.hide ? "hidden" : "visible")};
 `;
 
 export const Title = styled.h2`
