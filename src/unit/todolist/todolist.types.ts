@@ -5,4 +5,5 @@ export interface PropsTodoList {
   onClickAddItems: () => void;
   todoList?: string[];
   clearRef?: any;
+  onClickDeleteItems: (id) => () => void;
 }
