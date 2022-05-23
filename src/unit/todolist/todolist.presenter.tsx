@@ -22,7 +22,8 @@ export default function TodoListSecondUI(props: PropsTodoList) {
           <div key={uuidv4()}>
             <div>{index + 1}</div>
             <div>{el}</div>
-            <button onClick={props.onClickDeleteItems(el.index)}>Delete</button>
+            <div>{el.id}</div>
+            <button onClick={props.onClickDeleteItems(el.id)}>Delete</button>
           </div>
         ))}
       </S.ListWrapper>

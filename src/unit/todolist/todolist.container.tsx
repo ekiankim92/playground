@@ -39,7 +39,7 @@ export default function TodoListSecond() {
     const newList = todoList.filter((el) => el.id !== id);
     setTodoList(newList);
     // return [...newList];
-    console.log("userId", id);
+    console.log("id:", id);
   };
 
   return (
