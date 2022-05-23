@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 const KoreanJsonAxois = () => {
   const [koreanLaw, setKoreanLaw] = useState([]);
   const [koreanDate, setKoreanDate] = useState("");
+  const [posts, setPosts] = useState([]);
 
   const onClickKoreanLaw = async () => {
     // new Array(1).fill(1).forEach(async (_) => {
@@ -47,6 +48,12 @@ const KoreanJsonAxois = () => {
   //   testing();
   // }, []);
 
+  const onClickDbServer = async () => {
+    alert("testing");
+    const result = await axios.get("https://localhost:3000/profile");
+    console.log(result);
+  };
+
   return (
     <Wrapper>
       <div>Hello WOrld</div>
@@ -65,6 +72,8 @@ const KoreanJsonAxois = () => {
       <div>=========================================================</div>
       <div>{koreanDate.slice(0, 10)}</div>
       <button onClick={onClickKoreanDate}>Set Up a Date</button>
+      <div>=========================================================</div>
+      <button onClick={onClickDbServer}>Click Here</button>
     </Wrapper>
   );
 };
