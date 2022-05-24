@@ -19,6 +19,7 @@
     "apollo-upload-client": "^17.0.0",
     "axios": "^0.26.1",
     "graphql": "^16.3.0",
+    "json-server": "^0.17.0",
     "lodash": "^4.17.21",
     "next": "12.1.4",
     "react": "17.0.0",

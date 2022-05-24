@@ -50,7 +50,7 @@ const KoreanJsonAxois = () => {
 
   const onClickDbServer = async () => {
     alert("testing");
-    const result = await axios.get("https://localhost:3000/profile");
+    const result = await axios.get("http://localhost:3001/profile");
     console.log(result);
   };
 
