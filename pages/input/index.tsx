@@ -103,8 +103,8 @@ const InputPage = () => {
     <>
       <div>Hello WOrld</div>
       <Input type="text" onChange={onChangeName} />
-      {person.map((el) => (
-        <div key={el}>
+      {person.map((el, index) => (
+        <div key={index}>
           {/* <div>{el.name}</div> */}
           <h1>{el.person1.name}</h1>
           {/* <div>{el.person1}</div> */}
