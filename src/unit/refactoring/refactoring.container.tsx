@@ -34,7 +34,7 @@ export default function Refactoring() {
     // cannot use destrutive assignment in useForm because
     // you cant have missing input when its in useForm
 
-    const { password } = inputs;
+    // const { password } = inputs;
 
     try {
       const result = await createUser({
