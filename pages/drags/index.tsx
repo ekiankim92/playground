@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const Wrapper = styled.div`
@@ -58,7 +58,10 @@ export default function DragsPage() {
   ];
 
   const [todos, setTodos] = useState(todoLists);
-  const [addTodos, setAddTodos] = useState([]);
+
+  const [addTodos, setAddTodos] = useState("");
+
+  const [isBrowser, setIsBrowser] = useState(false);
 
   const handleChange = (result) => {
     if (!result.destination) return;
@@ -70,14 +73,19 @@ export default function DragsPage() {
   };
 
   const onChangeAddList = (event: ChangeEvent<HTMLInputElement>) => {
-    setAddTodos([event.target.value]);
+    setAddTodos(event.target.value);
   };
 
   const onClickAddList = () => {
-    setAddTodos([...todos, addTodos]);
-    console.log("todos:", todos);
     console.log("addTodos:", addTodos);
+    // setAddTodos([...todos, addTodos]);
+    // console.log("todos:", todos);
+    // console.log("addTodos:", addTodos);
   };
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
 
   return (
     <Wrapper>
@@ -88,33 +96,35 @@ export default function DragsPage() {
         onChange={onChangeAddList}
       />
       <button onClick={onClickAddList}>Add List</button>
-      <DragDropContext onDragEnd={handleChange}>
-        <Droppable droppableId="todos">
-          {(provided) => (
-            <ul
-              className="todos"
-              {...provided.droppableProps}
-              ref={provided.innerRef}
-            >
-              {todos.map(({ id, title }, index) => (
-                <Draggable key={id} draggableId={id} index={index}>
-                  {(provided) => (
-                    <TodoMap
-                      ref={provided.innerRef}
-                      {...provided.dragHandleProps}
-                      {...provided.draggableProps}
-                    >
-                      {index + 1}. {""}
-                      {title}
-                    </TodoMap>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </ul>
-          )}
-        </Droppable>
-      </DragDropContext>
+      {isBrowser ? (
+        <DragDropContext onDragEnd={handleChange}>
+          <Droppable droppableId="todos">
+            {(provided) => (
+              <ul
+                className="todos"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+                {todos.map(({ id, title }, index) => (
+                  <Draggable key={id} draggableId={id} index={index}>
+                    {(provided) => (
+                      <TodoMap
+                        ref={provided.innerRef}
+                        {...provided.dragHandleProps}
+                        {...provided.draggableProps}
+                      >
+                        {index + 1}. {""}
+                        {title}
+                      </TodoMap>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </ul>
+            )}
+          </Droppable>
+        </DragDropContext>
+      ) : null}
     </Wrapper>
   );
 }
