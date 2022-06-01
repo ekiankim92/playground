@@ -1,4 +1,6 @@
+import Scroll from "../../src/unit/scroll/scroll.container";
+
 const ScrollPage = () => {
-  return <div />;
+  return <Scroll />;
 };
 export default ScrollPage;
