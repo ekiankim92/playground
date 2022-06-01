@@ -54,7 +54,7 @@ export const FifthInputWrapper = styled.div`
   width: 420px;
   height: 60px;
   margin: 22px;
-  background-color: lightcoral;
+  background-color: beige;
 `;
 
 export const ButtonWrapper = styled.div`
@@ -75,4 +75,10 @@ export const Button = styled.button`
     cursor: pointer;
     opacity: 0.9;
   }
+`;
+
+export const ErrorMessage = styled.div`
+  font-size: 12px;
+  color: red;
+  margin-left: 12px;
 `;
