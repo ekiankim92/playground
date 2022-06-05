@@ -6,3 +6,7 @@ export const Wrapper = styled.div`
   border: 1px solid #000;
   margin: 30px auto;
 `;
+
+export const Title = styled.h2`
+  padding: 12px;
+`;
