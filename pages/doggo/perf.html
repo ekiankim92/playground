@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>3D Model Practice</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="400px" height="400px"></canvas>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.141.0/build...",
+          "GLTFLoader": "https://unpkg.com/three@0.141.0/examp..."
+        }
+      }
+    </script>
+
+    <script type="module">
+      import { GLTFLoader } from "GLTFLoader";
+      import * as THREE from "three";
+
+      let scene = new THREE.Scene();
+
+      let renderer = new THREE.webGLRenderer({
+        canvas: document.querySelector("#canvas"),
+      });
+
+      let camera = new THREE.PersprctiveCamera(30, 1);
+      camera.position.set(0, 0, 5);
+
+      let loader = new GLTFLoader();
+      loader.load("shiba/scene.gltf", function (gltf) {
+        scene.add(gltf.scene);
+        renderer.render(scene);
+      });
+    </script>
+  </body>
+</html>
