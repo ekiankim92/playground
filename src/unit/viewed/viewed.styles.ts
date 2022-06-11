@@ -51,3 +51,21 @@ export const Button = styled.button`
     opacity: 0.9;
   }
 `;
+
+export const SecondWrapper = styled.div`
+  width: 160px;
+  height: 440px;
+  border: 1px solid #000;
+  position: sticky;
+  z-index: 1;
+  top: 60px;
+  bottom: 1520px;
+  left: 1220px;
+  background-color: #ededed;
+`;
+
+export const StickyImg = styled.div`
+  width: 160px;
+  height: 100px;
+  border: 1px solid #000;
+`;
