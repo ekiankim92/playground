@@ -19,12 +19,15 @@ export default function ViewUI(props) {
         </S.BestItemsWrapper>
         <S.SecondWrapper>
           <h3>Recently Viewed</h3>
-          <span>1.</span>
-          <S.StickyImg></S.StickyImg>
-          <span>2.</span>
-          <S.StickyImg></S.StickyImg>
-          <span>3.</span>
-          <S.StickyImg></S.StickyImg>
+          {props.recentView.map((el, index) => (
+            <div key={uuidv4()}>
+              <span>{index + 1}. </span>
+              <img
+                style={{ width: "50", height: "50px" }}
+                src={`https://storage.googleapis.com/${el.images?.[0]}`}
+              />
+            </div>
+          ))}
         </S.SecondWrapper>
         <S.Title>Items Lists</S.Title>
         <S.ListWrapper>

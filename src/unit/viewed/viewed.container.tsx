@@ -9,6 +9,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 
 export default function View() {
   const [basketItem, setBasketItem] = useState([]);
+  const [recentView, setRecentView] = useState(["", "", ""]);
 
   const { data } = useQuery<
     Pick<IQuery, "fetchUseditems">,
@@ -55,15 +56,24 @@ export default function View() {
   useEffect(() => {
     const getBasket = JSON.parse(localStorage.getItem("basket") || "[]");
     setBasketItem(getBasket);
-  }, []);
+  }, [data]);
 
   const onClickDelete = (id) => () => {
-    alert("testing");
+    alert("Item has been deleted");
     const basket = JSON.parse(localStorage.getItem("basket") || "[]");
     const newBasket = basket.filter((el) => el._id !== id);
     localStorage.setItem("basket", JSON.stringify(newBasket));
     setBasketItem(newBasket);
   };
+
+  useEffect(() => {
+    const getBasket = JSON.parse(localStorage.getItem("basket") || "[]");
+    setRecentView(getBasket);
+    // recentView.splice(0, 2);
+    if (getBasket.length > 2) {
+      localStorage.setItem("basket", JSON.stringify(getBasket.slice(0, 3)));
+    }
+  }, []);
 
   return (
     <ViewUI
@@ -73,6 +83,7 @@ export default function View() {
       bestItemData={bestItemData}
       basketItem={basketItem}
       onClickDelete={onClickDelete}
+      recentView={recentView}
     />
   );
 }
