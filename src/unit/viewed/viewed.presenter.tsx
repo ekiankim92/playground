@@ -5,6 +5,18 @@ export default function ViewUI(props) {
   return (
     <>
       <S.Wrapper>
+        <S.BestItemsWrapper>
+          {props.bestItemData?.fetchUseditemsOfTheBest.map((el) => (
+            <S.BestListWrapper key={uuidv4()}>
+              <div>Name: {el.buyer.name}</div>
+              <div>{el.name}</div>
+              <div>Price: {el.price}</div>
+              <S.BestImg
+                src={`https://storage.googleapis.com/${el.images?.[0]}`}
+              />
+            </S.BestListWrapper>
+          ))}
+        </S.BestItemsWrapper>
         <S.SecondWrapper>
           <h3>Recently Viewed</h3>
           <span>1.</span>
@@ -25,12 +37,26 @@ export default function ViewUI(props) {
               <div>{el.name}</div>
               <div>{el.price}</div>
               <S.ButtonWrapper>
-                <S.Button onClick={props.onClickBasket}>Bakset</S.Button>
+                <S.Button onClick={props.onClickBasket(el)}>Bakset</S.Button>
               </S.ButtonWrapper>
             </S.ItemWrapper>
           ))}
         </S.ListWrapper>
       </S.Wrapper>
+      <h2>Basket Page</h2>
+      <S.BasketWrapper>
+        <div>Basket List</div>
+        {props.basketItem.map((el) => (
+          <div key={uuidv4()}>
+            <S.BasketImg
+              src={`https://storage.googleapis.com/${el.images?.[0]}`}
+            />
+            <div>{el.name}</div>
+            <div>{el.price}</div>
+            <button onClick={props.onClickDelete(el._id)}>Delete</button>
+          </div>
+        ))}
+      </S.BasketWrapper>
     </>
   );
 }
