@@ -65,15 +65,51 @@ export default function Session() {
   const onClickEdit = () => {
     const { name, phone, email } = inputs;
 
-    if (!name || !phone || !email) {
-      alert("수정하기 내용이 없습니다");
-      return;
+    setIsEdit(true);
+
+    // if (!name) {
+    //   console.log(JSON.parse(sessionStorage.getItem("name")));
+    // } else if (name) {
+    //   sessionStorage.setItem("name", JSON.stringify(name));
+    // }
+
+    if (name) {
+      sessionStorage.setItem("name", JSON.stringify(name));
+    } else if (!name) {
+      JSON.parse(sessionStorage.getItem("name"));
     }
 
-    setIsEdit(true);
-    sessionStorage.setItem("name", JSON.stringify(name));
-    sessionStorage.setItem("phone", JSON.stringify(phone));
-    sessionStorage.setItem("email", JSON.stringify(email));
+    if (phone) {
+      sessionStorage.setItem("phone", JSON.stringify(phone));
+    } else if (!phone) {
+      JSON.parse(sessionStorage.getItem("name"));
+    }
+
+    // if (!email) {
+    //   JSON.parse(sessionStorage.getItem("name"));
+    // } else if (email) {
+    //   sessionStorage.setItem("email", JSON.stringify(email));
+    // }
+
+    if (email) {
+      sessionStorage.setItem("email", JSON.stringify(email));
+    } else if (!email) {
+      JSON.parse(sessionStorage.getItem("name"));
+    }
+
+    // sessionStorage.setItem("name", JSON.stringify(name));
+    // sessionStorage.setItem("phone", JSON.stringify(phone));
+    // sessionStorage.setItem("email", JSON.stringify(email));
+
+    console.log("JSON.name:", JSON.parse(sessionStorage.getItem("name")));
+    console.log("JSON.phone:", JSON.parse(sessionStorage.getItem("phone")));
+    console.log("JSON.email:", JSON.parse(sessionStorage.getItem("email")));
+
+    console.log("name:", name);
+    console.log("phone:", phone);
+    console.log("email:", email);
+
+    if (name || phone || email) router.push("/");
   };
 
   return (

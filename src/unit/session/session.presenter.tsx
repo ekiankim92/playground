@@ -1,7 +1,19 @@
 import * as S from "./session.styles";
 import { IPropsSession } from "./session.types";
+import Select from "react-select";
+import { useState } from "react";
 
 export default function SessionUI(props: IPropsSession) {
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  const options = [
+    { value: "southkorea", label: "South Korea (+82)" },
+    { value: "china", label: "China (+86)" },
+    { value: "germany", label: "Germany (+49)" },
+    { value: "japan", label: "Japan (+81)" },
+    { value: "us", label: "United States (+1)" },
+  ];
+
   return (
     <S.Wrapper>
       <S.Title>Session Page</S.Title>
@@ -47,6 +59,11 @@ export default function SessionUI(props: IPropsSession) {
             <option value="japan">Japan (+81)</option>
             <option value="US">United States (+1)</option>
           </S.AreaCodeSelect>
+          <Select
+            defaultValue={selectedOption}
+            onChange={setSelectedOption}
+            options={options}
+          />
         </S.AreaCodeWrapper>
         <S.USerEmailWrapper>
           {props.isBrowser && (
