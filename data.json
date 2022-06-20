@@ -1,8 +1,54 @@
 {
-    "rank" : [
-        {
-            "id": 1, 
-            "name:": "Suzy"
-        }
-    ]
+  "rank": [
+    {
+      "id": 1,
+      "name": "Suzy",
+      "ranking": 4
+    },
+    {
+      "id": 2,
+      "name": "IU",
+      "ranking": 5
+    },
+    {
+      "id": 3,
+      "name": "Yoona",
+      "ranking": 8
+    },
+    {
+      "id": 4,
+      "name": "Hyuna",
+      "ranking": 9
+    },
+    {
+      "id": 5,
+      "name": "Jenny",
+      "ranking": 3
+    },
+    {
+      "id": 6,
+      "name": "Jisu",
+      "ranking": 1
+    },
+    {
+      "id": 7,
+      "name": "Taeyeon",
+      "ranking": 7
+    },
+    {
+      "id": 8,
+      "name": "Victoria",
+      "ranking": 10
+    },
+    {
+      "id": 9,
+      "name": "Yuri",
+      "ranking": 5
+    },
+    {
+      "id": 10,
+      "name": "Haeri",
+      "ranking": 2
+    }
+  ]
 }
