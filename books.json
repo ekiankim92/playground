@@ -1,0 +1,74 @@
+{
+  "booksList": [
+    {
+      "id": 1,
+      "name": "The Brutal Telling",
+      "author": "Louise Penny"
+    },
+    {
+      "id": 2,
+      "name": "The Thirteenth Tale",
+      "author": "Diane Setterfield"
+    },
+    {
+      "id": 3,
+      "name": "Half Broke Horses",
+      "author": "Jeannette Walls"
+    },
+    {
+      "id": 4,
+      "name": "Garden Spells",
+      "author": "Sarah Addison Allen"
+    },
+    {
+      "id": 5,
+      "name": "Vanishing Act of Esteem",
+      "author": "Maggie O'Farrell"
+    },
+    {
+      "id": 6,
+      "name": "Child 44",
+      "author": "Tom Rob Smith"
+    },
+    {
+      "id": 7,
+      "name": "Reluctant Fundamentals",
+      "author": "Mohsin Hamid"
+    },
+    {
+      "id": 8,
+      "name": "Harry Potter",
+      "author": "J.K. Rowling"
+    },
+    {
+      "id": 9,
+      "name": "Deep Dive Javascript",
+      "author": "EunKuk Ian Kim"
+    },
+    {
+      "id": 10,
+      "name": "IT",
+      "author": "Gray Schimdt"
+    },
+    {
+      "id": 11,
+      "name": "Defending Jacob",
+      "author": "Matthrew Kerr"
+    },
+    {
+      "id": 12,
+      "name": "Crooked Letter",
+      "author": "Tom Franklin"
+    },
+    {
+      "id": 13,
+      "name": "Power of Docker",
+      "author": "Seok Hee Kim"
+    },
+    {
+      "id": 14,
+      "name": "Technology Trend",
+      "author": "Douglass Kennedy"
+    }
+  ]
+}
