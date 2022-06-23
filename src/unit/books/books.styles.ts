@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Pagination } from "antd";
+import { PropsStyles } from "./books.types";
 
 export const Container = styled.div`
   width: 1400px;
@@ -12,7 +13,7 @@ export const Title = styled.h1`
 `;
 
 export const SearchWrapper = styled.div`
-  width: 1200px;
+  width: 1300px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -89,7 +90,8 @@ export const RentButton = styled.button`
   :hover {
     cursor: pointer;
   }
-  /* background-color: #accbff; */
+  background-color: ${(props: PropsStyles) =>
+    props.isRent ? "#accbff" : "#000"};
 `;
 
 export const Paginations = styled(Pagination)`

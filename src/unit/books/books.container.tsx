@@ -9,6 +9,7 @@ export default function Books() {
   const [secondPortion, setSecondPortion] = useState<string[]>([]);
   const [isPage, setIsPage] = useState<boolean>(false);
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [isRent, setIsRent] = useState<boolean>(false);
 
   const onChangePagination = (page: number) => {
     console.log("page:", page);
@@ -24,15 +25,18 @@ export default function Books() {
 
   const showModal = (id: string) => () => {
     // shows detailed information in popup
-
     const newList = booksList.filter((el: any) => el.id === id);
     setBookDetail(newList);
     setIsModalVisible(true);
+    console.log("showModal ID:", id);
   };
 
   const handleOk = () => {
+    alert("testing");
     setIsModalVisible(false);
-    alert("this is ok");
+    setIsRent((prev) => !prev);
+
+    console.log("isRent:", isRent);
   };
 
   const handleCancel = () => {
@@ -60,6 +64,7 @@ export default function Books() {
       handleOk={handleOk}
       handleCancel={handleCancel}
       bookDetail={bookDetail}
+      isRent={isRent}
     />
   );
 }

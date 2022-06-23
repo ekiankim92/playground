@@ -9,8 +9,8 @@ export default function BooksUI(props: PropsBooks) {
     <S.Container>
       <S.Title>Books List</S.Title>
       <S.SearchWrapper>
-        <S.SearchInput />
         <S.SearchImg src="/search.png/" />
+        <S.SearchInput />
       </S.SearchWrapper>
       <S.TableHead>
         <span>No.</span>
@@ -40,7 +40,10 @@ export default function BooksUI(props: PropsBooks) {
                 <S.BookName>{el.name}</S.BookName>
                 <S.Author>{el.author}</S.Author>
                 <S.DueDate>2022.06.23</S.DueDate>
-                <S.RentButton onClick={props.showModal(el.id)}>
+                <S.RentButton
+                  onClick={props.showModal(el.id)}
+                  isRent={props.isRent}
+                >
                   Rent
                 </S.RentButton>
               </S.TableData>
@@ -54,7 +57,9 @@ export default function BooksUI(props: PropsBooks) {
         onCancel={props.handleCancel}
         footer={[
           <S.ModalButtonWrapper key="0">
-            <S.ModalRentButton key="1">Rent</S.ModalRentButton>
+            <S.ModalRentButton key="1" onClick={props.handleOk}>
+              Rent
+            </S.ModalRentButton>
             <S.ModalCancelButton key="2" onClick={props.handleCancel}>
               Cancel
             </S.ModalCancelButton>

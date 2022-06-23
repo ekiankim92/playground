@@ -9,4 +9,9 @@ export interface PropsBooks {
   handleOk: () => void;
   handleCancel: () => void;
   isModalVisible: boolean;
+  isRent?: boolean;
+}
+
+export interface PropsStyles {
+  isRent?: boolean;
 }
