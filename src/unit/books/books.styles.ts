@@ -4,7 +4,6 @@ import { PropsStyles } from "./books.types";
 
 export const Container = styled.div`
   width: 1400px;
-  border: 1px solid #000;
   margin: 40px auto;
 `;
 
@@ -57,6 +56,9 @@ export const TableData = styled.div`
   align-items: center;
   height: 52px;
   border-bottom: 1px solid #dedede;
+  :hover {
+    opacity: 0.5;
+  }
 `;
 
 export const IndexNo = styled.div`

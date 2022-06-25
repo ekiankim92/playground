@@ -28,12 +28,14 @@ export default function Books() {
     const newList = booksList.filter((el: any) => el.id === id);
     setBookDetail(newList);
     setIsModalVisible(true);
+
     console.log("showModal ID:", id);
   };
 
   const handleOk = () => {
     alert("testing");
     setIsModalVisible(false);
+
     setIsRent((prev) => !prev);
 
     console.log("isRent:", isRent);
