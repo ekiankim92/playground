@@ -12,7 +12,7 @@ export const Title = styled.h2`
 
 export const SubmitWrapper = styled.div`
   width: 600px;
-  height: 300px;
+  height: 400px;
   margin: 0px 0px 40px 100px;
   display: flex;
   flex-direction: column;
@@ -34,6 +34,9 @@ export const NameInput = styled.input`
     padding: 6px;
     opacity: 0.4;
   }
+  :focus {
+    color: blue;
+  }
 `;
 
 export const KoreanInput = styled.input`
@@ -45,6 +48,9 @@ export const KoreanInput = styled.input`
     padding: 6px;
     opacity: 0.4;
   }
+  :focus {
+    color: green;
+  }
 `;
 
 export const MathInput = styled.input`
@@ -55,6 +61,9 @@ export const MathInput = styled.input`
   ::placeholder {
     padding: 6px;
     opacity: 0.4;
+  }
+  :focus {
+    color: coral;
   }
 `;
 
@@ -69,6 +78,18 @@ export const EnglishInput = styled.input`
   }
 `;
 
+export const SubmitButton = styled.button`
+  width: 220px;
+  height: 36px;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  :hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+`;
+
 export const TableHeader = styled.div`
   width: 1000px;
   height: 52px;
@@ -80,13 +101,37 @@ export const TableHeader = styled.div`
   font-weight: 600;
 `;
 
-export const HeaderName = styled.div``;
+export const NameHeader = styled.span`
+  width: 192px;
+  :hover {
+    cursor: pointer;
+    color: gray;
+  }
+`;
 
-export const HeaderKorean = styled.div``;
+export const KscoreHeader = styled.span`
+  width: 250px;
+  :hover {
+    cursor: pointer;
+    color: gray;
+  }
+`;
 
-export const HeaderMath = styled.div``;
+export const MscoreHeader = styled.span`
+  width: 228px;
+  :hover {
+    cursor: pointer;
+    color: gray;
+  }
+`;
 
-export const HeaderEnglish = styled.div``;
+export const EscoreHeader = styled.span`
+  width: 110px;
+  :hover {
+    cursor: pointer;
+    color: gray;
+  }
+`;
 
 export const TableDate = styled.div`
   width: 1000px;
@@ -114,4 +159,53 @@ export const EnglishData = styled.div`
   width: 200px;
   text-align: center;
   padding-left: 22px;
+`;
+
+export const ListDataWrapper = styled.div`
+  width: 1000px;
+  margin: 0px auto;
+  display: flex;
+`;
+
+export const ListNameWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  width: 266px;
+`;
+
+export const ListNameElement = styled.div`
+  margin-bottom: 12px;
+`;
+
+export const ListKScoreWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 328px;
+`;
+
+export const ListKScoreElement = styled.div`
+  margin-bottom: 12px;
+`;
+
+export const ListMScoreWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+`;
+
+export const ListMScoreElement = styled.div`
+  margin-bottom: 12px;
+`;
+
+export const ListEScoreWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 242px;
+  text-align: center;
+`;
+
+export const ListEscoreElement = styled.div`
+  margin-bottom: 12px;
+  padding-left: 70px;
 `;
