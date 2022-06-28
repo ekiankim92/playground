@@ -11,4 +11,7 @@ export interface PropsFilter {
   clearKScore: MutableRefObject<HTMLInputElement>;
   clearMScore: MutableRefObject<HTMLInputElement>;
   clearEScore: MutableRefObject<HTMLInputElement>;
+  onClickKScoreFilter: () => void;
+  isFilter?: boolean;
+  onClickAlphabet: () => void;
 }

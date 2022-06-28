@@ -36,16 +36,18 @@ export default function FilterUI(props: PropsFilter) {
           <S.SubmitButton onClick={props.onClickSubmit}>Submit</S.SubmitButton>
         </S.SubmitWrapper>
         <S.TableHeader>
-          <S.NameHeader>Name</S.NameHeader>
-          <S.KscoreHeader>Korean Score</S.KscoreHeader>
+          <S.NameHeader onClick={props.onClickAlphabet}>Name</S.NameHeader>
+          <S.KscoreHeader onClick={props.onClickKScoreFilter}>
+            Korean Score
+          </S.KscoreHeader>
           <S.MscoreHeader>Math Score</S.MscoreHeader>
           <S.EscoreHeader>English Store</S.EscoreHeader>
         </S.TableHeader>
         <S.TableDate>
-          <S.NameData>Jim Green</S.NameData>
+          {/* <S.NameData>Jim Green</S.NameData>
           <S.KoreanData>88</S.KoreanData>
           <S.MathData>66</S.MathData>
-          <S.EnglishData>70</S.EnglishData>
+          <S.EnglishData>70</S.EnglishData> */}
         </S.TableDate>
         <S.ListDataWrapper>
           <S.ListNameWrapper>
@@ -55,11 +57,19 @@ export default function FilterUI(props: PropsFilter) {
               </div>
             ))}
           </S.ListNameWrapper>
-          <S.ListKScoreWrapper>
-            {props.listKScore.map((el, index) => (
-              <S.ListKScoreElement key={index}>{el}</S.ListKScoreElement>
-            ))}
-          </S.ListKScoreWrapper>
+          {props.isFilter ? (
+            <S.ListKScoreWrapper>
+              {props.listKScore.map((el, index) => (
+                <S.ListKScoreElement key={index}>{el}</S.ListKScoreElement>
+              ))}
+            </S.ListKScoreWrapper>
+          ) : (
+            <S.ListKScoreWrapper>
+              {props.listKScore.map((el, index) => (
+                <S.ListKScoreElement key={index}>{el}</S.ListKScoreElement>
+              ))}
+            </S.ListKScoreWrapper>
+          )}
           <S.ListMScoreWrapper>
             {props.listMScore.map((el, index) => (
               <S.ListMScoreElement key={index}>{el}</S.ListMScoreElement>

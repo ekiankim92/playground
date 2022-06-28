@@ -16,6 +16,7 @@ export default function Filter() {
   const [listKScore, setListKScore] = useState([]);
   const [listMScore, setListMScore] = useState([]);
   const [listEScore, setListEScore] = useState([]);
+  const [isFilter, setIsFilter] = useState<boolean>(false);
 
   const clearNameRef = useRef<HTMLInputElement>(null);
   const clearKScore = useRef<HTMLInputElement>(null);
@@ -30,11 +31,48 @@ export default function Filter() {
     console.log(event.target.value);
   }, 300);
 
+  const onClickKScoreFilter = () => {
+    setIsFilter((prev) => !prev);
+
+    if (isFilter === true) {
+      return setListKScore(listKScore.sort((a, b) => a - b));
+    } else if (isFilter === false) {
+      return setListKScore(listKScore.sort((a, b) => a - b).reverse());
+    }
+  };
+
+  const onClickAlphabet = () => {
+    // setListNames(listNames.sort((a, b) => a.localeCompare(b)));
+    setListNames(listNames.sort((a, b) => b.localeCompare(a)));
+  };
+
+  //   useEffect(() => {
+  //     onClickKScoreFilter();
+  //   }, []);
+
   const onClickSubmit = () => {
     const { name, kscore, mscore, escore } = inputs;
 
     if (!name || !kscore || !mscore || !escore) {
       Modal.warn({ content: "please fill all the information" });
+      return;
+    }
+
+    // if (!/^[a-zA-Z]+$/g.test(name)) {
+    if (!/^[a-zA-Z][a-zA-Z ]*$/.test(name)) {
+      Modal.warn({ content: "please enter the name correctly" });
+      return;
+    }
+
+    if (
+      Number(kscore) > 100 ||
+      Number(kscore) < 0 ||
+      Number(mscore) > 100 ||
+      Number(mscore) < 0 ||
+      Number(escore) > 100 ||
+      Number(escore) < 0
+    ) {
+      Modal.warn({ content: "please enter the score correctly" });
       return;
     }
 
@@ -49,7 +87,6 @@ export default function Filter() {
     clearEScore.current.value = "";
 
     console.log("inputs:", inputs);
-    console.log("listKScore:", listKScore);
   };
 
   return (
@@ -64,6 +101,9 @@ export default function Filter() {
       clearKScore={clearKScore}
       clearMScore={clearMScore}
       clearEScore={clearEScore}
+      onClickKScoreFilter={onClickKScoreFilter}
+      isFilter={isFilter}
+      onClickAlphabet={onClickAlphabet}
     />
   );
 }
