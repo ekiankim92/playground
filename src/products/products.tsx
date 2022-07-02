@@ -1,3 +1,5 @@
+import * as S from "./products.styles";
+
 export default function Products() {
   const product = [
     {
@@ -41,8 +43,11 @@ export default function Products() {
   console.log("product:", product);
 
   return (
-    <>
-      <div>Product Lists</div>
-    </>
+    <S.Wrapper>
+      <S.Title>Product Lists</S.Title>
+      <input placeholder="Search.." />
+      <input type="checkbox" />
+      <label>Only show products in stock</label>
+    </S.Wrapper>
   );
 }
