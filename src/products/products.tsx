@@ -42,11 +42,15 @@ export default function Products() {
 
   console.log("product:", product);
 
+  const onChangeCheckBox = (event) => {
+    console.log(event.target.value);
+  };
+
   return (
     <S.Wrapper>
       <S.Title>Product Lists</S.Title>
       <input placeholder="Search.." />
-      <input type="checkbox" />
+      <input type="checkbox" onChange={onChangeCheckBox} />
       <label>Only show products in stock</label>
     </S.Wrapper>
   );
