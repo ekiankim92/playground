@@ -63,16 +63,16 @@ export default function Products() {
   const sportingFilter = newSportingGoods.filter((el) => el.stocked === true);
   const electronicsFilter = newElectronics.filter((el) => el.stocked === true);
 
+  const sportingFilterFalse = newSportingGoods.filter(
+    (el) => el.stocked === false
+  );
+
   useEffect(() => {
     setIsFiltered(sportingFilter);
     setIsElectronics(electronicsFilter);
     setIsProduct(productFilter);
     onFocusRef.current.focus();
   }, [search]);
-
-  console.log("isProduct:", isProduct);
-
-  console.log("isSold:", isSold);
 
   const onChangeCheckBox = (event: ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.checked);
@@ -97,6 +97,12 @@ export default function Products() {
   const productFilter = product.filter(
     (el) => String(el.name) === String(search)
   );
+
+  console.log("sportingFilter:", sportingFilter);
+
+  console.log("sportingFilterFalse:", sportingFilterFalse);
+
+  console.log("electronicsFilter:", electronicsFilter);
 
   return (
     <S.Wrapper>
