@@ -20,6 +20,7 @@ export default function BooksUI(props: PropsBooks) {
         <span>Rent</span>
       </S.TableHead>
       {props.isPage ? (
+        // page 2 of pagination
         <S.TableDataWrapper>
           {props.secondPortion.map((el: any, index: number) => (
             <S.TableData key={uuidv4()}>
@@ -32,6 +33,7 @@ export default function BooksUI(props: PropsBooks) {
           ))}
         </S.TableDataWrapper>
       ) : (
+        // page 1 of pagination
         <S.TableDataWrapper>
           {props.booksList
             .map((el: any, index: number) => (
