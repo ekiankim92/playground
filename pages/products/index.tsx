@@ -1,5 +1,5 @@
-import Products from "../../src/products/products";
-import MapList from "../../src/products/product.map.list";
+import Products from "../../src/unit/products/products";
+import MapList from "../../src/unit/products/product.map.list";
 
 const ProductsPage = () => {
   return (
