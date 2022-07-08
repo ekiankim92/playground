@@ -12,6 +12,8 @@ export default function ButtonStatusUI(props) {
           index={index}
           id={el.id}
           onClickRent={props.onClickRent(el.id)}
+          selectId={props.selectId}
+          isRent={props.isRent}
         />
       ))}
     </S.Wrapper>

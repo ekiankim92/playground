@@ -42,4 +42,5 @@ export const RentButton = styled.button`
   :hover {
     cursor: pointer;
   }
+  background-color: ${(props) => (props.isRent ? "red" : "#efefef")};
 `;

@@ -9,15 +9,31 @@ const list = [
 
 export default function ButtonStatus() {
   const [booksList, setBooksList] = useState([...list]);
+  const [selectId, setSelectId] = useState(0);
+  const [isRent, setIsRent] = useState(false);
 
   console.log("booksList:", booksList);
 
   const onClickRent = (id) => () => {
     console.log("id:", id);
-    const newList = booksList.filter((el) => el.id !== id);
-    setBooksList(newList);
-    console.log("newList:", newList);
+
+    // deleting an item
+    // const newList = booksList.filter((el) => el.id !== id);
+    // setBooksList(newList);
+    // console.log("newList:", newList);
+
+    setBooksList(booksList);
+    setSelectId(id);
+
+    setIsRent((prev) => !prev);
   };
 
-  return <ButtonStatusUI booksList={booksList} onClickRent={onClickRent} />;
+  return (
+    <ButtonStatusUI
+      booksList={booksList}
+      onClickRent={onClickRent}
+      selectId={selectId}
+      isRent={isRent}
+    />
+  );
 }
