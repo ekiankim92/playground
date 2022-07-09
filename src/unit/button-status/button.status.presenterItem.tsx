@@ -1,11 +1,20 @@
+import { useState } from "react";
 import * as S from "./button-status.styles";
 
 export default function ButtonStatusUIItems(props) {
-  console.log("props.index:", props.index);
-  console.log("props.id:", props.id);
-  console.log("props.isRent:", props.isRent);
+  //   console.log("props.index:", props.index);
+  //   console.log("props.id:", props.id);
+  //   console.log("props.isRent:", props.isRent);
 
   const { name, author } = props.el;
+
+  const [isTrue, setIsTrue] = useState(false);
+
+  const onClickTesting = () => {
+    // console.log("id");
+    setIsTrue(true);
+    console.log("isTrue:", isTrue);
+  };
 
   return (
     <S.Container>
@@ -20,6 +29,12 @@ export default function ButtonStatusUIItems(props) {
       <S.RentButton onClick={props.onClickRent} isRent={props.isRent}>
         {props.id === props.selectId ? "Rented" : "Rent"}
       </S.RentButton>
+      <button
+        onClick={onClickTesting}
+        style={{ backgroundColor: isTrue ? "red" : "#fefefe" }}
+      >
+        빌리기
+      </button>
     </S.Container>
   );
 }

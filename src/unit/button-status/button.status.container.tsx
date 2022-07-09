@@ -16,16 +16,27 @@ export default function ButtonStatus() {
 
   const onClickRent = (id) => () => {
     console.log("id:", id);
+    alert("testing");
 
     // deleting an item
     // const newList = booksList.filter((el) => el.id !== id);
     // setBooksList(newList);
-    // console.log("newList:", newList);
 
     setBooksList(booksList);
     setSelectId(id);
 
     setIsRent((prev) => !prev);
+
+    // switch (id) {
+    //   case 1:
+    //     return setIsRent(true);
+    //   case 2:
+    //     return setIsRent(true);
+    //   case 3:
+    //     return setIsRent(true);
+    //   default:
+    //     return setIsRent(false);
+    // }
   };
 
   return (
