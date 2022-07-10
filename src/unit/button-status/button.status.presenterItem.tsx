@@ -1,6 +1,10 @@
 import { useState } from "react";
 import * as S from "./button-status.styles";
 
+// 여기서  state 을 선언해야지 제 각각의 element 가 바뀜
+// if state was declared in the container component(parent) then it is
+// considered as the lifting state up
+
 export default function ButtonStatusUIItems(props) {
   //   console.log("props.index:", props.index);
   //   console.log("props.id:", props.id);
