@@ -6,6 +6,11 @@ export default function TabsUIItems() {
     <>
       <S.Container>
         <S.Title>네이버 여행 현황 조회</S.Title>
+        <S.TabWrapper>
+          <S.BasicTab>Basic</S.BasicTab>
+          <S.SmartTab>Smart</S.SmartTab>
+          <S.GoldTab>Gold</S.GoldTab>
+        </S.TabWrapper>
       </S.Container>
       <BuxiHeaders />
     </>
