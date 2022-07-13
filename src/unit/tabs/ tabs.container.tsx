@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TabsUI from "./tabs.presenter";
 
-const basicList = [
+const basicData = [
   {
     reservation: "200511121317142_R8C9",
     name: "김은국",
@@ -39,7 +39,7 @@ const basicList = [
   },
 ];
 
-const smartList = [
+const smartData = [
   {
     reservation: "200507175115771_PWTD",
     name: "최은국",
@@ -77,7 +77,7 @@ const smartList = [
   },
 ];
 
-const goldList = [
+const goldData = [
   {
     reservation: "200508105108281_AH5P",
     name: "임제니",
@@ -123,9 +123,66 @@ export default function Tabs() {
   // BUXINPSG00000000 Smart
   // BUXINPGG00000000 Gold
 
-  const [isBasic, setIsBasic] = useState<boolean>(false);
+  const [basicList, setBasicList] = useState([...basicData]);
+  const [smartList, setSmartList] = useState([...smartData]);
+  const [goldList, setGoldList] = useState([...goldData]);
+  const [allList, setAllList] = useState([
+    ...basicData,
+    ...smartData,
+    ...goldData,
+  ]);
+
+  const [isBasic, setIsBasic] = useState<boolean>(true);
   const [isSmart, setIsSmart] = useState<boolean>(false);
   const [isGold, setIsGold] = useState<boolean>(false);
+  const [isAll, setIsAll] = useState<boolean>(false);
 
-  return <TabsUI />;
+  const onClickBasic = () => {
+    setIsBasic(true);
+    setIsSmart(false);
+    setIsGold(false);
+    setIsAll(false);
+    setBasicList([...basicData]);
+  };
+
+  const onClickSmart = () => {
+    setIsSmart(true);
+    setIsGold(false);
+    setIsBasic(false);
+    setIsAll(false);
+    setSmartList([...smartData]);
+  };
+
+  const onClickGold = () => {
+    setIsGold(true);
+    setIsBasic(false);
+    setIsSmart(false);
+    setIsAll(false);
+    setGoldList([...goldData]);
+  };
+
+  const onClickAll = () => {
+    setIsAll(true);
+    setIsGold(false);
+    setIsBasic(false);
+    setIsSmart(false);
+    setAllList([...basicData, ...smartData, ...goldData]);
+  };
+
+  return (
+    <TabsUI
+      onClickBasic={onClickBasic}
+      onClickSmart={onClickSmart}
+      onClickGold={onClickGold}
+      onClickAll={onClickAll}
+      isBasic={isBasic}
+      isSmart={isSmart}
+      isGold={isGold}
+      basicList={basicList}
+      smartList={smartList}
+      goldList={goldList}
+      allList={allList}
+      isAll={isAll}
+    />
+  );
 }
