@@ -1,7 +1,5 @@
+import Map from "../../src/unit/map/map.container";
+
 export default function MapPage() {
-  return (
-    <>
-      <div>KaKao Map Page</div>
-    </>
-  );
+  return <Map />;
 }
