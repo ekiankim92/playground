@@ -14,8 +14,14 @@ export const DownImg = styled.img`
   width: 32px;
   height: 32px;
   margin: 20px;
-  :hover {
+  /* :hover {
     transform: rotate(20deg);
+  } */
+  :hover {
+    animation: ${(props) =>
+      props.isTwinkle
+        ? "animation: 3s linear 1s infinite running slidein;"
+        : "none"};
   }
 `;
 

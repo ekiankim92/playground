@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import MapUI from "./map.presenter";
+import * as S from "./map.styles";
 
 declare const window: typeof globalThis & {
   kakao: any;
@@ -47,7 +48,7 @@ export default function Map() {
   return (
     <>
       <MapUI />
-      <div id="map" style={{ width: "500px", height: "400px" }} />
+      <S.Map id="map" />
     </>
   );
 }

@@ -19,8 +19,9 @@ export default function Blank() {
   const [nickName, setNickName] = useState("");
   const [count, setCount] = useState(0);
   const clearRef = useRef<HTMLInputElement>(null);
-
   const router = useRouter();
+
+  const isTwinkle = true;
 
   //   const [number, dispatch] = useReducer(reducer, initialCount);
 
@@ -94,6 +95,7 @@ export default function Blank() {
       //   number={number}
       //   dispatch={dispatch}
       //   reducer={reducer}
+      isTwinkle={isTwinkle}
     />
   );
 }

@@ -18,6 +18,8 @@ const initialCount = { count: 0 };
 export default function BlankUI(props: PropsBlank) {
   const [state, dispatch] = useReducer(reducer, initialCount);
 
+  console.log("props.isTwinkle:", props.isTwinkle);
+
   return (
     <>
       <S.Container>
@@ -39,7 +41,7 @@ export default function BlankUI(props: PropsBlank) {
         <div>{props.myOwnNickname}</div>
         <div>============================================================</div>
         <div>IMG test</div>
-        <S.DownImg src="down.png/" />
+        <S.DownImg src="down.png/" isTwinkle={props.isTwinkle} />
         <S.CrossImg src="cross.png/" />
         <div>============================================================</div>
         <div>Normal count</div>
