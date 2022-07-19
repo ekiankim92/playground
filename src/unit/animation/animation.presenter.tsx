@@ -14,11 +14,28 @@ export default function AnimationUI() {
         <img src="down.png/" />
       </div>
       <div>
-        <img src="cross.png/" />
+        <S.CrossImg src="cross.png/" />
       </div>
+      <div>
+        <S.DocImg src="doctor.jpg/" />
+      </div>
+      <S.ImgWrapper>
+        <S.HospitalCover>
+          <div>Hospital</div>
+          <div>Img of hospital beds</div>
+        </S.HospitalCover>
+        <S.HospitalImg src="hospital.jpg/" />
+      </S.ImgWrapper>
+      <S.Button>Click Here!</S.Button>
       <S.SmallBoxContainer>
         <div>Small Box</div>
       </S.SmallBoxContainer>
+      <S.SecondBox>
+        <div>Second Box</div>
+      </S.SecondBox>
+      <S.UpNDown>
+        <div>Up and Down</div>
+      </S.UpNDown>
     </S.Wrapper>
   );
 }
