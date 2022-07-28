@@ -11,6 +11,10 @@ export const Title = styled.h2`
   padding: 12px;
 `;
 
+export const FormContainer = styled.div`
+  display: flex;
+`;
+
 export const FormWrapper = styled.form`
   background-color: lightblue;
   display: flex;

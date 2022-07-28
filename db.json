@@ -13,12 +13,6 @@
       "gender": "female"
     },
     {
-      "id": 3,
-      "name": "Paul",
-      "age": 18,
-      "gender": "male"
-    },
-    {
       "id": 4,
       "name": "Chris",
       "age": 30,
@@ -31,10 +25,22 @@
       "gender": "female"
     },
     {
-      "id": 6,
-      "name": "Kat",
-      "age": 29,
-      "gender": "female"
+      "name": "Katie",
+      "age": "30",
+      "gender": "female",
+      "id": 6
+    },
+    {
+      "name": "Iron Man",
+      "age": "45",
+      "gender": "male",
+      "id": 7
+    },
+    {
+      "name": "Captain America",
+      "age": "47",
+      "gender": "male",
+      "id": 8
     }
   ]
 }

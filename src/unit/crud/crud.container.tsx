@@ -1,6 +1,7 @@
 import CrudUI from "./crud.presenter";
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import _ from "lodash";
 
 export default function Crud() {
   const baseUrl = "http://localhost:3001/profile";
@@ -15,14 +16,28 @@ export default function Crud() {
     gender: "",
   });
 
+  const [updated, setUpdated] = useState({
+    newName: "",
+    newAge: "",
+    newGender: "",
+  });
+
   const nameRef = useRef(null);
 
-  const onChangeInputs = (event) => {
+  const onChangeInputs = _.debounce((event) => {
     setInputs({
       ...inputs,
       [event.target.name]: event.target.value,
     });
-  };
+  }, 900);
+
+  const onChangeUpdated = _.debounce((event) => {
+    setUpdated({
+      ...updated,
+      [event.target.name]: event.target.value,
+    });
+    console.log("event.target.value:", event.target.value);
+  });
 
   //   const handleData = async () => {
   //     const result = await axios.get("http://localhost:3001/profile");
@@ -44,7 +59,6 @@ export default function Crud() {
     } catch (error) {
       console.log("submit error:", error.message);
     }
-    console.log("list:", list);
   };
 
   const handleData = async () => {
@@ -60,29 +74,37 @@ export default function Crud() {
     }
   };
 
-  const onClickEdit = (id: string) => () => {
-    console.log("update id:", id);
+  const onClickEdit = () => {
+    setIsEdit(true);
+  };
 
-    const { name, age, gender } = inputs;
+  const onClickConfirmUpdate = (id, event) => {
+    console.log("testing if onClickUpdate is working");
+    console.log("id:", id);
+    event.preventDefault();
+    return onClickUpdate(id);
+  };
 
+  const onClickUpdate = (id) => () => {
+    const { newName, newAge, newGender } = updated;
     try {
       axios
         .put(`${baseUrl}/${id}`, {
-          name,
-          age,
-          gender,
+          name: newName,
+          age: newAge,
+          gender: newGender,
         })
         .then((response) => {
-          console.log(response.data);
+          console.log("response:", response);
+          setList(response.data);
         });
     } catch (error) {
-      console.log("update error:", error.message);
+      console.log("update error message:", error.message);
     }
-    console.log("this is edit");
   };
 
-  const onClickUpdate = () => {
-    setIsEdit(true);
+  const onClickCancel = () => {
+    setIsEdit(false);
   };
 
   const onClickDelete = (id: string) => () => {
@@ -98,7 +120,6 @@ export default function Crud() {
 
   useEffect(() => {
     handleData();
-    console.log("list:", list);
   }, []);
 
   if (!list) return null;
@@ -114,8 +135,11 @@ export default function Crud() {
       age={inputs.age}
       gender={inputs.gender}
       isEdit={isEdit}
-      onClickUpdate={onClickUpdate}
       nameRef={nameRef}
+      onChangeUpdated={onChangeUpdated}
+      onClickCancel={onClickCancel}
+      onClickUpdate={onClickUpdate}
+      onClickConfirmUpdate={onClickConfirmUpdate}
     />
   );
 }
