@@ -154,3 +154,15 @@ export const UpNDown = styled.div`
   position: relative;
   animation: ${updown} 12s ease infinite;
 `;
+
+export const LinearButton = styled.button`
+  margin: 12px;
+  width: 260px;
+  height: 60px;
+  background: linear-gradient(to left, #3ba3de 50%, #fff 50%) right;
+  background-size: 200% 100%;
+  transition: all 0.5s ease-out;
+  :hover {
+    background-position: left;
+  }
+`;

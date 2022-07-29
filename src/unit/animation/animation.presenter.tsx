@@ -4,6 +4,7 @@ export default function AnimationUI() {
   return (
     <S.Wrapper>
       <S.Title>Animation Practice</S.Title>
+      <S.LinearButton>Linear Gradient</S.LinearButton>
       <div>
         <img src="more.png/" />
       </div>
