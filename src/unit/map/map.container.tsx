@@ -6,7 +6,7 @@ declare const window: typeof globalThis & {
   kakao: any;
 };
 
-const mapKey = process.env.NEXT_PUBLIC_MAP_API_KEY;
+const mapKey = process.env.NEXT_PUBLIC_MAP_API_KEY; // app key from .env
 console.log("mapKey:", mapKey);
 
 export default function Map() {
