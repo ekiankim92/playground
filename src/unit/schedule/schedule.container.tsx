@@ -14,13 +14,13 @@ export default function Schedule() {
     [setEvents]
   );
 
-  const handleSelectEvent = useCallback(
-    (id) => {
-      const newEvents = events.filter((el) => el.id !== id);
-      setEvents(newEvents);
-    },
-    [setEvents]
-  );
+  const onClickRemoveEvent = (event) => {
+    console.log("event:", event);
+    // const newEvents = events.splice(index, 1);
+    // setEvents([...newEvents]);
+    const newEvents = events.filter((el) => el.title !== event.title);
+    setEvents([...newEvents, events]);
+  };
 
   const { defaultDate, scrollToTime } = useMemo(
     () => ({
@@ -34,9 +34,9 @@ export default function Schedule() {
     <ScheduleUI
       events={events}
       handleSelectSlot={handleSelectSlot}
-      handleSelectEvent={handleSelectEvent}
       defaultDate={defaultDate}
       scrollToTime={scrollToTime}
+      onClickRemoveEvent={onClickRemoveEvent}
     />
   );
 }

@@ -18,7 +18,7 @@ export default function ScheduleUI(props) {
         views={["month", "week", "day"]}
         defaultDate={props.defaultDate}
         onSelectSlot={props.handleSelectSlot}
-        onSelectEvent={props.handleSelectEvent}
+        onSelectEvent={props.onClickRemoveEvent}
         scrollToTime={props.scrollToTime}
       />
     </S.Wrapper>
