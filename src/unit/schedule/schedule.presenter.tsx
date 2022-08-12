@@ -4,7 +4,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 
 export default function ScheduleUI(props) {
-  //   moment.locale("en-EN");
+  moment.locale("en-EN");
+  moment.locale("kr-KR");
   const localizer = momentLocalizer(moment);
 
   return (
