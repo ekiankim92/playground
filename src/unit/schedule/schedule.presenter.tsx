@@ -2,11 +2,11 @@ import * as S from "./schedule.styles";
 import { momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
-// import "moment/locale/ko";
+import "moment/locale/ko";
 
 export default function ScheduleUI(props) {
-  moment.locale("en-EN");
-  moment.locale("kr-KR");
+  // moment.locale("en-EN");
+  // moment.locale("kr-KR");
   const localizer = momentLocalizer(moment);
 
   return (
