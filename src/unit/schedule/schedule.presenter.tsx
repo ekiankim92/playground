@@ -5,9 +5,8 @@ import moment from "moment";
 import "moment/locale/ko";
 
 export default function ScheduleUI(props) {
-  // moment.locale("en-EN");
-  // moment.locale("kr-KR");
   const localizer = momentLocalizer(moment);
+  console.log("localizer:", localizer);
 
   return (
     <S.Wrapper>
