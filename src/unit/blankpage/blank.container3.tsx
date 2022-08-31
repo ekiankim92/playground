@@ -1,6 +1,6 @@
 import { Checkbox } from "@mui/material";
 import styled from "@emotion/styled";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useState } from "react";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -30,6 +30,7 @@ const SaveBox = styled.input`
 export default function Blank3() {
   const [userId, setUserId] = useState<string>("");
   const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [y, setY] = useState(0);
 
   const onChangeUserId = (event: ChangeEvent<HTMLInputElement>) => {
     setUserId(event.target.value);
@@ -67,8 +68,46 @@ export default function Blank3() {
     console.log("newCheckbox:", newCheckBox);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY) {
+        console.log("this is scroll");
+        console.log(window.scrollY);
+      }
+    }
+  }, []);
+
+  const onScollEvent = (event) => {
+    console.log(event);
+    console.log("this is scroll event");
+    console.log("scrollTop: ", event.currentTarget.scrollTop);
+    console.log("offsetHeight: ", event.currentTarget.offsetHeight);
+  };
+
+  const handleNavigation = useCallback(
+    (e) => {
+      const window = e.currentTarget;
+      if (y > window.scrollY) {
+        console.log("scrolling up");
+      } else if (y < window.scrollY) {
+        console.log("scrolling down");
+      }
+      setY(window.scrollY);
+    },
+    [y]
+  );
+
+  useEffect(() => {
+    setY(window.scrollY);
+    window.addEventListener("scroll", handleNavigation);
+
+    return () => {
+      window.removeEventListener("scroll", handleNavigation);
+    };
+  }, [handleNavigation]);
+
   return (
-    <Wrapper>
+    <Wrapper onScroll={onScollEvent} onChange={onScollEvent}>
       <Checkbox {...label} defaultChecked />
       <Checkbox {...label} defaultChecked color="secondary" />
       <Checkbox {...label} defaultChecked color="success" />
