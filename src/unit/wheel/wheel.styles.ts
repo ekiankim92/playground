@@ -77,6 +77,13 @@ export const EnterWrapper = styled.div`
   align-items: end;
 `;
 
+export const ArrowImg = styled.img`
+  width: 120px;
+  position: relative;
+  bottom: 7px;
+  right: 38px;
+`;
+
 export const EnterInnerWrapper = styled.div`
   width: 280px;
   height: 45px;
@@ -86,8 +93,17 @@ export const EnterInnerWrapper = styled.div`
   background-size: 200% 100%;
   transition: all 0.5s ease-out;
   :hover {
+    width: 380px;
     cursor: pointer;
     background-position: left;
+    ${ArrowImg} {
+      position: relative;
+      width: 240px;
+      height: 12px;
+      bottom: 6px;
+      left: -34px;
+      transition-duration: 1s;
+    }
   }
 `;
 
@@ -98,13 +114,6 @@ export const Enter = styled.div`
   font-weight: 500;
   line-height: 150%;
   text-align: center;
-`;
-
-export const ArrowImg = styled.img`
-  width: 120px;
-  position: relative;
-  bottom: 7px;
-  right: 38px;
 `;
 
 export const Intro = styled.div`

@@ -120,6 +120,7 @@ export default function Wheel() {
             <S.EnterWrapper>
               <S.EnterInnerWrapper>
                 <S.Enter>ENTER</S.Enter>
+                <S.ArrowImg src="arrow.png" />
               </S.EnterInnerWrapper>
             </S.EnterWrapper>
           </S.RightWrapper>
