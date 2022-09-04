@@ -13,6 +13,8 @@ export default function Wheel() {
 
   const [isOnOff, setIsOnOff] = useState<boolean>(false);
 
+  const [isColor, setIsColor] = useState<boolean>(false);
+
   const onWheelEvent = _.debounce(() => {
     // setIsOnline((prev) => !prev);
     // setIsOffline((prev) => !prev);
@@ -52,6 +54,18 @@ export default function Wheel() {
     WheelTest(isOnOff);
   }, []);
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY !== 0) {
+          setIsColor(true);
+        } else {
+          setIsColor(false);
+        }
+      });
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -66,6 +80,7 @@ export default function Wheel() {
       </Head>
       <S.LogoImg src="logo.png" />
       <S.Wrapper onWheel={WheelTest}>
+        <S.HeaderWrapper isColor={isColor}>Sturting</S.HeaderWrapper>
         <S.MainWrapper>
           <S.LeftWrapper>
             <S.OnLabel>Offline</S.OnLabel>

@@ -2,13 +2,28 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+interface PropsTypes {
+  isColor?: boolean;
+}
+
 export const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const HeaderWrapper = styled.header`
+  width: 100%;
+  height: 60px;
+  padding: 16px;
+  font-size: 18px;
+  margin-bottom: 40px;
+  background-color: ${(props: PropsTypes) =>
+    props.isColor ? "#1dc078" : "#fff"};
 `;
 
 export const LogoImg = styled.img`
