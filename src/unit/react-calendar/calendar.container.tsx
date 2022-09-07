@@ -10,14 +10,13 @@ export default function Calendar() {
   const onClickList = () => {
     const result = window.prompt("would you like to add schedule?");
     if (result) {
-      const newList = localStorage.setItem("list", JSON.stringify(result));
-      setList([newList, ...list]);
+      localStorage.setItem("list", JSON.stringify(result));
+      setList([...list, result]);
     }
   };
 
   useEffect(() => {
-    // onClickList();
-    const newList = JSON.parse(localStorage.getItem("list"));
+    const newList = JSON.parse(localStorage.getItem("list") || "[]");
     setList([newList]);
   }, []);
 
