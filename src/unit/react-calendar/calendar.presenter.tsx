@@ -6,7 +6,7 @@ import moment from "moment";
 export default function CalendarUI(props) {
   return (
     <S.Wrapper>
-      <div>Calendar Pages</div>
+      <div>This is react-calendar page</div>
       <div>
         <Calendar
           onChange={props.setValue}
