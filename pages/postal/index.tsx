@@ -1,4 +1,6 @@
+import Postal from "../../src/unit/postal/postal.container";
+
 const DaumPostal = () => {
-  return <div />;
+  return <Postal />;
 };
 export default DaumPostal;
