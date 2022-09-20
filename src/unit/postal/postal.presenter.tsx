@@ -51,7 +51,7 @@ export default function PostalUI(props) {
 
       {/* //////////////////////////////////////////////////////////////////////// */}
 
-      {/* this is mapping the data */}
+      {/* this is mapping the data with addressData*/}
       {props.addressData.map((el, index) => (
         <div key={index}>
           <div>{el.address}</div>
