@@ -19,17 +19,21 @@ export default function CalenderUI() {
     end: "",
   });
 
-  const [events, setEvents] = useState<any[]>([]);
+  const [events, setEvents] = useState<any[]>([
+    {
+      title: "",
+      start: "",
+      end: "",
+    },
+  ]);
 
   const handleSelectSlot = useCallback(
     ({ start, end }) => {
       const title = window.prompt("일정 적기");
       if (title) {
         const list = [setEvents((prev) => [...prev, { start, end, title }])];
-        // prettier-ignore'
-        let newList = [
-          localStorage.setItem("dates", JSON.stringify({ start, end, title })),
-        ];
+        // prettier-ignore
+        let newList = [localStorage.setItem("dates", JSON.stringify({ start, end, title })),];
         setEvents([list, ...newList]);
       }
       console.log("events:", events);
@@ -43,6 +47,19 @@ export default function CalenderUI() {
       [event.target.name]: event.target.value,
     });
     console.log("event.target.value:", event.target.value);
+  };
+
+  const onClickSubmit = () => {
+    const { title, start, end } = inputs;
+    const list = setEvents([
+      ...events,
+      {
+        title,
+        start,
+        end,
+      },
+    ]);
+    localStorage.setItem("newDates", JSON.stringify(list));
   };
 
   const mainEvents = [
@@ -73,7 +90,7 @@ export default function CalenderUI() {
             onChange={onChangeInputs}
             name="end"
           />
-          <Submit>Submit</Submit>
+          <Submit onClick={onClickSubmit}>Submit</Submit>
           <ReactCalendar
             localizer={localizer}
             events={events}
