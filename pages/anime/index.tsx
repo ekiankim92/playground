@@ -41,6 +41,7 @@ export default function Anime() {
 
   const onHandleData = async () => {
     await filmUrl.then((response) => console.log(response));
+    await pplUrl.then((response) => console.log(response));
   };
 
   useEffect(() => {
