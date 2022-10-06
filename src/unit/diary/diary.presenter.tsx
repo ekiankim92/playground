@@ -13,10 +13,10 @@ export default function DiaryUI(props) {
       />
       <textarea />
       <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
+        <option value={1}>1</option>
+        <option value={2}>2</option>
+        <option value={3}>3</option>
+        <option value={4}>4</option>
       </select>
     </S.Wrapper>
   );
