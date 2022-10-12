@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import DiaryUI from "./diary.presenter";
 
-export default function Diary() {
+export default function Diary(props) {
   const [state, setState] = useState({
     author: "",
     content: "",
+    emotion: 1,
   });
 
   const onChangeState = (event) => {
@@ -18,14 +19,14 @@ export default function Diary() {
   const lengthRef = useRef(null);
   const authorRef = useRef(null);
 
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      focusRef.current.focus();
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window !== undefined) {
+  //     focusRef.current.focus();
+  //   }
+  // }, []);
 
   const onClickSubmit = () => {
-    const { author, content } = state;
+    const { author, content, emotion } = state;
     console.log("state:", state);
 
     // if (!author || !content) {
@@ -33,18 +34,19 @@ export default function Diary() {
     // }
 
     if (author.length < 3) {
-      lengthRef.current.value = "";
-      lengthRef.current.focus();
-      return;
-    }
-
-    if (content.length < 5) {
-      authorRef.current.value = "";
       authorRef.current.focus();
       return;
     }
 
-    return alert("saved diary");
+    if (content.length < 5) {
+      lengthRef.current.focus();
+      return;
+    }
+
+    props.onCreateDiary(author, content, emotion);
+    alert("saved diary");
+    authorRef.current.value = "";
+    lengthRef.current.value = "";
   };
 
   return (
@@ -54,6 +56,7 @@ export default function Diary() {
       onChangeState={onChangeState}
       focusRef={focusRef}
       lengthRef={lengthRef}
+      authorRef={authorRef}
       onClickSubmit={onClickSubmit}
     />
   );

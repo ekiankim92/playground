@@ -10,17 +10,17 @@ export default function DiaryUI(props) {
           value={props.author}
           onChange={props.onChangeState}
           placeholder="writer"
-          ref={props.lengthRef}
+          ref={props.authorRef}
         />
         <S.Text
           name="content"
           placeholder="content"
-          ref={props.focusRef}
+          ref={props.lengthRef}
           onChange={props.onChangeState}
         />
         <S.ScoreSection>
           <S.ScoreLabel>Score for today :</S.ScoreLabel>
-          <S.ScoreList>
+          <S.ScoreList name="emotion" onChange={props.onChangeState}>
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>
