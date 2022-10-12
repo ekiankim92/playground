@@ -16,7 +16,7 @@ export default function Translate() {
 
   useEffect(() => {
     const language = window.navigator.language;
-    localStorage.setItem("language", JSON.stringify(language.slice(0, 2)));
+    // localStorage.setItem("language", JSON.stringify(language.slice(0, 2)));
   }, []);
 
   return <TranslateUI onClickEng={onClickEng} onClickKor={onClickKor} />;

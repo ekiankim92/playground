@@ -1,6 +1,6 @@
-import Diary from "../../src/unit/diary/diary.container";
+import DiaryMain from "../../src/unit/diary";
 
 const DiaryPage = () => {
-  return <Diary />;
+  return <DiaryMain />;
 };
 export default DiaryPage;
