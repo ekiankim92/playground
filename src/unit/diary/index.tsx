@@ -44,10 +44,17 @@ const DiaryMain = () => {
     setList([newItems, ...list]);
   };
 
+  const onClickDelete = (id) => () => {
+    if (window.confirm(`${id} delete?`)) {
+      const newDiaryList = list.filter((el) => el.id !== id);
+      setList(newDiaryList);
+    }
+  };
+
   return (
     <>
       <Diary onCreateDiary={onCreateDiary} />
-      <DiaryList dummyList={list} />
+      <DiaryList dummyList={list} onClickDelete={onClickDelete} />
     </>
   );
 };
