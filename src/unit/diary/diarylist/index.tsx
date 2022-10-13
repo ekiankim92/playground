@@ -11,6 +11,7 @@ export default function DiaryList(props) {
           key={el.id}
           el={el}
           onClickDelete={props.onClickDelete(el.id)}
+          onClickEdit={props.onClickEdit}
         />
       ))}
     </S.Wrapper>

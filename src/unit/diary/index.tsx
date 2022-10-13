@@ -51,10 +51,24 @@ const DiaryMain = () => {
     }
   };
 
+  const onClickEdit = (targetId, newContent) => {
+    setList(
+      list.map((el) =>
+        el.id === targetId ? { ...el, content: newContent } : el
+      )
+    );
+    console.log("targetId", targetId);
+    console.log("newContent:", newContent);
+  };
+
   return (
     <>
       <Diary onCreateDiary={onCreateDiary} />
-      <DiaryList dummyList={list} onClickDelete={onClickDelete} />
+      <DiaryList
+        dummyList={list}
+        onClickDelete={onClickDelete}
+        onClickEdit={onClickEdit}
+      />
     </>
   );
 };

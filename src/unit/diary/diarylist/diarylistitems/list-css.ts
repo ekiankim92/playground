@@ -58,3 +58,15 @@ export const EditButton = styled.button`
     opacity: 0.6;
   }
 `;
+
+export const Button = styled.button`
+  width: 240px;
+  height: 30px;
+  border: none;
+  margin: 8px 0px 0px 23px;
+  :hover {
+    cursor: pointer;
+    border: 1px solid #000;
+    opacity: 0.6;
+  }
+`;
