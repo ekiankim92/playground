@@ -15,7 +15,6 @@ export default function DiaryListItems(props) {
 
   const onChangeText = (event) => {
     setLocalContents(event.target.value);
-    console.log("localContents:", event.target.value);
   };
 
   const handleQuitEdit = () => {

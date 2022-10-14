@@ -1,6 +1,7 @@
 import Diary from "./diaryCreate/diary.container";
 import DiaryList from "./diarylist";
-import { useState, useRef } from "react";
+import DiaryCycle from "./diaryCycle";
+import { useState, useRef, useEffect, useMemo } from "react";
 
 const DiaryMain = () => {
   const dummyList = [
@@ -61,9 +62,51 @@ const DiaryMain = () => {
     console.log("newContent:", newContent);
   };
 
+  const getData = async () => {
+    const result = await fetch(
+      "https://jsonplaceholder.typicode.com/comments"
+    ).then((response) => response.json());
+
+    const initialData = result.slice(0, 20).map((el) => {
+      return {
+        author: el.email,
+        content: el.body,
+        emotion: Math.floor(Math.random() * 5) + 1,
+        createDate: new Date().getTime(),
+        id: dataId.current++,
+      };
+    });
+
+    setList(initialData);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getDiaryAnalysis = useMemo(() => {
+    console.log("일기 분석 시작");
+
+    const goodCount = list.filter((el) => el.emotion >= 3).length;
+    const badCount = list.length - goodCount;
+    const goodRatio = Math.floor((goodCount / list.length) * 100);
+    return {
+      goodCount,
+      badCount,
+      goodRatio,
+    };
+  }, [list.length]);
+
+  const { goodCount, badCount, goodRatio } = getDiaryAnalysis;
+
   return (
     <>
+      <DiaryCycle />
       <Diary onCreateDiary={onCreateDiary} />
+      <div>전체일기: {list.length}</div>
+      <div>기분 좋은 일기 개수: {goodCount}</div>
+      <div>기분 나쁜 일기 개수: {badCount}</div>
+      <div>기분 좋은 일기 비율: {goodRatio}</div>
       <DiaryList
         dummyList={list}
         onClickDelete={onClickDelete}
