@@ -1,6 +1,8 @@
 import Diary from "./diaryCreate/diary.container";
 import DiaryList from "./diarylist";
 import DiaryCycle from "./diaryCycle";
+import DiaryOptimize from "./diaryOptimize";
+import OptimizeTest from "./diaryMemo";
 import { useState, useRef, useEffect, useMemo } from "react";
 
 const DiaryMain = () => {
@@ -58,8 +60,6 @@ const DiaryMain = () => {
         el.id === targetId ? { ...el, content: newContent } : el
       )
     );
-    console.log("targetId", targetId);
-    console.log("newContent:", newContent);
   };
 
   const getData = async () => {
@@ -85,8 +85,6 @@ const DiaryMain = () => {
   }, []);
 
   const getDiaryAnalysis = useMemo(() => {
-    console.log("일기 분석 시작");
-
     const goodCount = list.filter((el) => el.emotion >= 3).length;
     const badCount = list.length - goodCount;
     const goodRatio = Math.floor((goodCount / list.length) * 100);
@@ -101,6 +99,8 @@ const DiaryMain = () => {
 
   return (
     <>
+      <OptimizeTest />
+      <DiaryOptimize />
       <DiaryCycle />
       <Diary onCreateDiary={onCreateDiary} />
       <div>전체일기: {list.length}</div>
