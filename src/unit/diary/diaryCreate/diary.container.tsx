@@ -49,6 +49,10 @@ export default function Diary(props) {
     lengthRef.current.value = "";
   };
 
+  useEffect(() => {
+    console.log("DiaryEditor Container Render!!!");
+  });
+
   return (
     <DiaryUI
       state={state}

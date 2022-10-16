@@ -3,7 +3,7 @@ import DiaryList from "./diarylist";
 import DiaryCycle from "./diaryCycle";
 import DiaryOptimize from "./diaryOptimize";
 import OptimizeTest from "./diaryMemo";
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, useCallback } from "react";
 
 const DiaryMain = () => {
   const dummyList = [
@@ -34,18 +34,21 @@ const DiaryMain = () => {
 
   const dataId = useRef(0);
 
-  const onCreateDiary = (author: string, content: string, emotion: number) => {
-    const createdDate = new Date().toISOString().slice(0, 10);
-    const newItems = {
-      author,
-      content,
-      emotion,
-      createdDate,
-      id: dataId.current,
-    };
-    dataId.current += 1;
-    setList([newItems, ...list]);
-  };
+  const onCreateDiary = useCallback(
+    (author: string, content: string, emotion: number) => {
+      const createdDate = new Date().toISOString().slice(0, 10);
+      const newItems = {
+        author,
+        content,
+        emotion,
+        createdDate,
+        id: dataId.current,
+      };
+      dataId.current += 1;
+      setList((list) => [newItems, ...list]);
+    },
+    []
+  );
 
   const onClickDelete = (id) => () => {
     if (window.confirm(`${id} delete?`)) {
