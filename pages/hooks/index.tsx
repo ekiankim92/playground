@@ -1,12 +1,11 @@
 import Props1 from "./props1/props1";
 import Props2 from "./props2/props2";
 import styled from "@emotion/styled";
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 const Container = styled.div`
   width: 100%;
   height: 100vh;
-  display: flex;
 `;
 
 const MainPage = styled.div`
@@ -20,28 +19,28 @@ const HooksPage = () => {
   const [count, setCount] = useState(0);
   const [text, setText] = useState("");
 
-  const onClickCount = () => {
+  const onClickCount = useMemo(() => {
     setCount((prev) => prev + 1);
-  };
+  }, []);
 
   const onChangeText = (event) => {
     setText(event.target.value);
   };
 
-  const InputText = () => {
+  const InputText = React.memo(() => {
     useEffect(() => {
       console.log("this is text within InputText useEffect:", text);
-    });
+    }, []);
 
     return <div>{text}</div>;
-  };
+  });
 
   return (
     <Container>
       <MainPage>
         <h2>Hooks practice</h2>
         <div>{count}</div>
-        <button onClick={onClickCount}>Increase by one</button>
+        <button>Increase by one</button>
         {/* <div>{text}</div> */}
         <InputText />
         <input onChange={onChangeText} />
