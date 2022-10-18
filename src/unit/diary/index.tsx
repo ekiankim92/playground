@@ -3,7 +3,15 @@ import DiaryList from "./diarylist";
 import DiaryCycle from "./diaryCycle";
 import DiaryOptimize from "./diaryOptimize";
 import OptimizeTest from "./diaryMemo";
-import { useState, useRef, useEffect, useMemo, useCallback } from "react";
+import {
+  useState,
+  useRef,
+  useEffect,
+  useMemo,
+  useCallback,
+  useReducer,
+} from "react";
+import { it } from "date-fns/locale";
 
 const DiaryMain = () => {
   const dummyList = [
@@ -30,22 +38,55 @@ const DiaryMain = () => {
     },
   ];
 
-  const [list, setList] = useState([]);
+  // going to use useReducer
+  // const [list, setList] = useState([]);
+
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "INIT": {
+        return action.list;
+      }
+      case "CREATE": {
+        const createdDate = new Date().toISOString().slice(0, 10);
+        const newItem = {
+          ...action.list,
+          createdDate,
+        };
+        return [newItem, ...state];
+      }
+      case "REMOVE": {
+        return state.filter((el) => el.id !== action.id);
+      }
+      case "EDIT": {
+        return state.map((el) =>
+          el.id === action.targetId ? { ...el, content: action.newContent } : el
+        );
+      }
+      default:
+        return state;
+    }
+  };
+
+  const [list, dispatch] = useReducer(reducer, []);
 
   const dataId = useRef(0);
 
   const onCreateDiary = useCallback(
     (author: string, content: string, emotion: number) => {
-      const createdDate = new Date().toISOString().slice(0, 10);
-      const newItems = {
-        author,
-        content,
-        emotion,
-        createdDate,
-        id: dataId.current,
-      };
+      dispatch({
+        type: "CREATE",
+        list: { author, content, emotion, id: dataId.current },
+      });
+      // const createdDate = new Date().toISOString().slice(0, 10);
+      // const newItems = {
+      //   author,
+      //   content,
+      //   emotion,
+      //   createdDate,
+      //   id: dataId.current,
+      // };
       dataId.current += 1;
-      setList((list) => [newItems, ...list]);
+      // setList((list) => [newItems, ...list]);
     },
     []
   );
@@ -57,13 +98,15 @@ const DiaryMain = () => {
     }
   };
 
-  const onClickEdit = (targetId, newContent) => {
-    setList(
-      list.map((el) =>
-        el.id === targetId ? { ...el, content: newContent } : el
-      )
-    );
-  };
+  const onClickEdit = useCallback((targetId, newContent) => {
+    dispatch({ type: "EDIT", targetId, newContent });
+
+    // setList(
+    //   list.map((el) =>
+    //     el.id === targetId ? { ...el, content: newContent } : el
+    //   )
+    // );
+  }, []);
 
   const getData = async () => {
     const result = await fetch(
@@ -79,8 +122,8 @@ const DiaryMain = () => {
         id: dataId.current++,
       };
     });
-
-    setList(initialData);
+    dispatch({ type: "INIT", list: initialData });
+    // setList(initialData);
   };
 
   useEffect(() => {
