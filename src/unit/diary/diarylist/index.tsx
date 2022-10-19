@@ -1,7 +1,15 @@
 import * as S from "./list-css";
 import DiaryListItems from "./diarylistitems";
+import { GlobalContext } from "../../../../pages/_app";
+import { useContext } from "react";
 
 export default function DiaryList(props) {
+  const { isEdit, isOpen }: any = useContext(GlobalContext);
+
+  console.log("isEdit global context:", isEdit);
+
+  console.log("isOpen:", isOpen);
+
   return (
     <S.Wrapper>
       <S.Title>Diary List</S.Title>

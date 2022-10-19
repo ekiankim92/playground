@@ -20,23 +20,31 @@ const Reducer = () => {
       case "decrease": {
         return state - 1;
       }
+      case "reset": {
+        return initialState;
+      }
       default:
         state;
     }
   };
 
-  const [count, dispatch] = useReducer(reducer, 1);
+  const initialState = 0;
+
+  const [count, dispatch] = useReducer(reducer, initialState);
 
   const onIncrement = useCallback(() => {
     dispatch({ type: "increase" });
   }, []);
 
   const onDecrease = () => {
-    console.log(count);
     if (count <= 0) {
       return;
     }
     dispatch({ type: "decrease" });
+  };
+
+  const onReset = () => {
+    dispatch({ type: "reset" });
   };
 
   return (
@@ -45,6 +53,7 @@ const Reducer = () => {
       <div style={{ margin: 20, fontSize: 18 }}>
         <div>{count}</div>
       </div>
+      <Buttons onClick={onReset}>Reset</Buttons>
       <Buttons onClick={onIncrement}>+++</Buttons>
       <Buttons onClick={onDecrease}>---</Buttons>
     </>

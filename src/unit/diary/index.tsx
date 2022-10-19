@@ -10,8 +10,10 @@ import {
   useMemo,
   useCallback,
   useReducer,
+  createContext,
 } from "react";
-import { it } from "date-fns/locale";
+
+export const GlobalContext = createContext({});
 
 const DiaryMain = () => {
   const dummyList = [
@@ -71,6 +73,11 @@ const DiaryMain = () => {
 
   const dataId = useRef(0);
 
+  const myValue = {
+    isEdit: false,
+    isOpen: false,
+  };
+
   const onCreateDiary = useCallback(
     (author: string, content: string, emotion: number) => {
       dispatch({
@@ -94,7 +101,8 @@ const DiaryMain = () => {
   const onClickDelete = (id) => () => {
     if (window.confirm(`${id} delete?`)) {
       const newDiaryList = list.filter((el) => el.id !== id);
-      setList(newDiaryList);
+      // setList(newDiaryList);
+      dispatch({ type: "EDIT", list: newDiaryList });
     }
   };
 
@@ -144,7 +152,7 @@ const DiaryMain = () => {
   const { goodCount, badCount, goodRatio } = getDiaryAnalysis;
 
   return (
-    <>
+    <GlobalContext.Provider value={myValue}>
       <OptimizeTest />
       <DiaryOptimize />
       <DiaryCycle />
@@ -158,7 +166,7 @@ const DiaryMain = () => {
         onClickDelete={onClickDelete}
         onClickEdit={onClickEdit}
       />
-    </>
+    </GlobalContext.Provider>
   );
 };
 export default DiaryMain;
