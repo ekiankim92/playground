@@ -15,7 +15,13 @@ import {
 
 export const GlobalContext = createContext({});
 
+export const DiaryDispatchContext = createContext({});
+
 const DiaryMain = () => {
+  const memoizedDispatches = useMemo(() => {
+    return { onCreateDiary, onClickDelete, onClickEdit };
+  }, []);
+
   const dummyList = [
     {
       id: 1,
@@ -153,19 +159,21 @@ const DiaryMain = () => {
 
   return (
     <GlobalContext.Provider value={myValue}>
-      <OptimizeTest />
-      <DiaryOptimize />
-      <DiaryCycle />
-      <Diary onCreateDiary={onCreateDiary} />
-      <div>전체일기: {list.length}</div>
-      <div>기분 좋은 일기 개수: {goodCount}</div>
-      <div>기분 나쁜 일기 개수: {badCount}</div>
-      <div>기분 좋은 일기 비율: {goodRatio}</div>
-      <DiaryList
-        dummyList={list}
-        onClickDelete={onClickDelete}
-        onClickEdit={onClickEdit}
-      />
+      <DiaryDispatchContext.Provider value={memoizedDispatches}>
+        <OptimizeTest />
+        <DiaryOptimize />
+        <DiaryCycle />
+        <Diary onCreateDiary={onCreateDiary} />
+        <div>전체일기: {list.length}</div>
+        <div>기분 좋은 일기 개수: {goodCount}</div>
+        <div>기분 나쁜 일기 개수: {badCount}</div>
+        <div>기분 좋은 일기 비율: {goodRatio}</div>
+        <DiaryList
+          dummyList={list}
+          onClickDelete={onClickDelete}
+          onClickEdit={onClickEdit}
+        />
+      </DiaryDispatchContext.Provider>
     </GlobalContext.Provider>
   );
 };
