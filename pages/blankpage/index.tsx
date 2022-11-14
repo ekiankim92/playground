@@ -1,6 +1,7 @@
 import Blank from "../../src/unit/blankpage/blank.container";
 import Blank2 from "../../src/unit/blankpage/blank.container2";
 import Blank3 from "../../src/unit/blankpage/blank.container3";
+import Blank4 from "../../src/unit/blankpage/blank.container4";
 
 const BlankPage = () => {
   return (
@@ -15,6 +16,10 @@ const BlankPage = () => {
       <hr />
       <hr />
       <Blank3 />
+      <hr />
+      <hr />
+      <hr />
+      <Blank4 />
     </>
   );
 };
