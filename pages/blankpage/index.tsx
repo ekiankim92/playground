@@ -2,6 +2,7 @@ import Blank from "../../src/unit/blankpage/blank.container";
 import Blank2 from "../../src/unit/blankpage/blank.container2";
 import Blank3 from "../../src/unit/blankpage/blank.container3";
 import Blank4 from "../../src/unit/blankpage/blank.container4";
+import Blank5 from "../../src/unit/blankpage/blank.container5";
 
 const BlankPage = () => {
   return (
@@ -20,6 +21,10 @@ const BlankPage = () => {
       <hr />
       <hr />
       <Blank4 />
+      <hr />
+      <hr />
+      <hr />
+      <Blank5 />
     </>
   );
 };
