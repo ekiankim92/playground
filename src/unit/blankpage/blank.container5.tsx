@@ -27,6 +27,10 @@ const Button = styled.button`
   margin: 30px;
 `;
 
+const DataWrapper = styled.div`
+  border: 1px solid #000;
+`;
+
 export default function Blank5() {
   const reducer = (state, action) => {
     let newState = [];
@@ -39,7 +43,7 @@ export default function Blank5() {
         break;
       }
       case "REMOVE": {
-        newState = state.filter((el) => el.id !== el.targetId);
+        newState = state.filter((el) => el.id !== action.targetId);
         break;
       }
       default:
@@ -81,6 +85,11 @@ export default function Blank5() {
     onCreate(date, content, emotion);
   };
 
+  const onClickRemove = (targetId) => () => {
+    dispatch({ type: "REMOVE", targetId });
+    console.log("targetId:", targetId);
+  };
+
   return (
     <Wrapper>
       <div>Testing Reducer</div>
@@ -97,11 +106,12 @@ export default function Blank5() {
       <hr />
       <hr />
       {data.map((el, index) => (
-        <div key={index}>
+        <DataWrapper key={index} onClick={onClickRemove(el.id)}>
+          <div>ID: {el.id}</div>
           <div>{el.date}</div>
           <div>{el.emotion}</div>
           <div>{el.content}</div>
-        </div>
+        </DataWrapper>
       ))}
     </Wrapper>
   );
