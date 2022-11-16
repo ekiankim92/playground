@@ -87,6 +87,7 @@ export default function Blank5() {
 
   const onClickRemove = (targetId) => () => {
     dispatch({ type: "REMOVE", targetId });
+    console.log("data:", data);
     console.log("targetId:", targetId);
   };
 
