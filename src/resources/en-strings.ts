@@ -1,3 +1,11 @@
 export default {
-  intro: "Changing language settings",
+  newEn: {
+    register: {
+      firstName: "First name (Gildong)",
+      lastName: "Last name (Hong)",
+      email: "Email",
+      password: "Password",
+      passwordConfirm: "Confirm password",
+    },
+  },
 };

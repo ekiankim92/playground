@@ -3,6 +3,7 @@ import { FormProps } from "./form.types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./form.validations";
+import { strings } from "../../resources";
 
 export default function FormUI({ onChangeInputs, onClickSubmit }: FormProps) {
   const { register, handleSubmit, formState } = useForm({
@@ -14,9 +15,10 @@ export default function FormUI({ onChangeInputs, onClickSubmit }: FormProps) {
     <form onSubmit={handleSubmit(onClickSubmit)}>
       <S.Wrapper>
         <h2>Register Page</h2>
+        <S.Button>Language</S.Button>
         <S.NameLabelWrapper>
-          <S.FirstNameLabel>First name (Gildong)</S.FirstNameLabel>
-          <S.LastNameLabel>Last name (Hong)</S.LastNameLabel>
+          <S.FirstNameLabel>{strings.get("firstName")}</S.FirstNameLabel>
+          <S.LastNameLabel>{strings.get("lastName")}</S.LastNameLabel>
         </S.NameLabelWrapper>
         <S.NameWrapper>
           <S.FirstNameInput
@@ -24,41 +26,45 @@ export default function FormUI({ onChangeInputs, onClickSubmit }: FormProps) {
             onChange={onChangeInputs}
             {...register("firstName")}
           />
-          <div>{formState.errors.firstName?.message}</div>
+          <S.ErrorMessage>{formState.errors.firstName?.message}</S.ErrorMessage>
           <S.LastNameInput
             name="lastName"
             onChange={onChangeInputs}
             {...register("lastName")}
           />
-          <div>{formState.errors.lastName?.message}</div>
+          <S.ErrorMessage>{formState.errors.lastName?.message}</S.ErrorMessage>
         </S.NameWrapper>
         <S.EmailWrapper>
-          <S.EmailLabel>Email</S.EmailLabel>
+          <S.EmailLabel>{strings.get("email")}</S.EmailLabel>
           <S.EmailInput
             type="email"
             name="email"
             onChange={onChangeInputs}
             {...register("email")}
           />
-          <div>{formState.errors.email?.message}</div>
+          <S.ErrorMessage>{formState.errors.email?.message}</S.ErrorMessage>
         </S.EmailWrapper>
         <S.PasswordWrapper>
-          <S.PasswordLabel>Password</S.PasswordLabel>
+          <S.PasswordLabel>{strings.get("password")}</S.PasswordLabel>
           <S.PasswordInput
             name="password"
             onChange={onChangeInputs}
             {...register("password")}
           />
-          <div>{formState.errors.password?.message}</div>
+          <S.ErrorMessage>{formState.errors.password?.message}</S.ErrorMessage>
         </S.PasswordWrapper>
         <S.PassConfirmWrapper>
-          <S.ConfirmPassLabel>Confirm password</S.ConfirmPassLabel>
+          <S.ConfirmPassLabel>
+            {strings.get("passwordConfirm")}
+          </S.ConfirmPassLabel>
           <S.ConfirmPassInput
             name="passwordConfirm"
             onChange={onChangeInputs}
             {...register("passwordConfirm")}
           />
-          <div>{formState.errors.passwordConfirm?.message}</div>
+          <S.ErrorMessage>
+            {formState.errors.passwordConfirm?.message}
+          </S.ErrorMessage>
         </S.PassConfirmWrapper>
         <S.ButtonWrapper>
           <S.Button>Register</S.Button>

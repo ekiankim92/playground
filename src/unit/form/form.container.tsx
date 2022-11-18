@@ -1,5 +1,6 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import FormUI from "./form.presenter";
+import { Cookies } from "react-cookie";
 
 export default function Form() {
   const test1 =
@@ -21,17 +22,26 @@ export default function Form() {
     passwordConfirm: "",
   });
 
+  const cookies = new Cookies();
+
   const onChangeInputs = (event: ChangeEvent<HTMLInputElement>) => {
     setInputs({
       ...inputs,
       [event.target.name]: event.target.value,
     });
-    console.log(event.target.value);
   };
 
   const onClickSubmit = () => {
     alert("submit");
   };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const language = window.navigator.language;
+      //   localStorage.setItem("lang", language.slice(0, 2));
+      cookies.set("lang", language.slice(0, 2));
+    }
+  }, []);
 
   return (
     <FormUI onChangeInputs={onChangeInputs} onClickSubmit={onClickSubmit} />

@@ -151,3 +151,8 @@ export const Button = styled.button`
     opacity: 0.7;
   }
 `;
+
+export const ErrorMessage = styled.span`
+  font-size: 12px;
+  color: #ffcccb;
+`;
