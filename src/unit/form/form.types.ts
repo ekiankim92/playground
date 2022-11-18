@@ -7,6 +7,5 @@ export interface FormProps {
   password?: string;
   passwordConfirm?: string;
   onChangeInputs: (event: ChangeEvent<HTMLInputElement>) => void;
-  //   onClickSubmit: () => void;
-  onClickSubmit: any;
+  onClickSubmit: () => void;
 }

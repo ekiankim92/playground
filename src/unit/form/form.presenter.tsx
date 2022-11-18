@@ -10,13 +10,8 @@ export default function FormUI({ onChangeInputs, onClickSubmit }: FormProps) {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = () => {
-    alert("another TESTING!");
-    alert("useForm testing");
-  };
-
   return (
-    <form onClick={handleSubmit(onClickSubmit)}>
+    <form onSubmit={handleSubmit(onClickSubmit)}>
       <S.Wrapper>
         <h2>Register Page</h2>
         <S.NameLabelWrapper>
@@ -29,11 +24,13 @@ export default function FormUI({ onChangeInputs, onClickSubmit }: FormProps) {
             onChange={onChangeInputs}
             {...register("firstName")}
           />
+          <div>{formState.errors.firstName?.message}</div>
           <S.LastNameInput
             name="lastName"
             onChange={onChangeInputs}
             {...register("lastName")}
           />
+          <div>{formState.errors.lastName?.message}</div>
         </S.NameWrapper>
         <S.EmailWrapper>
           <S.EmailLabel>Email</S.EmailLabel>
@@ -43,6 +40,7 @@ export default function FormUI({ onChangeInputs, onClickSubmit }: FormProps) {
             onChange={onChangeInputs}
             {...register("email")}
           />
+          <div>{formState.errors.email?.message}</div>
         </S.EmailWrapper>
         <S.PasswordWrapper>
           <S.PasswordLabel>Password</S.PasswordLabel>
@@ -51,6 +49,7 @@ export default function FormUI({ onChangeInputs, onClickSubmit }: FormProps) {
             onChange={onChangeInputs}
             {...register("password")}
           />
+          <div>{formState.errors.password?.message}</div>
         </S.PasswordWrapper>
         <S.PassConfirmWrapper>
           <S.ConfirmPassLabel>Confirm password</S.ConfirmPassLabel>
@@ -59,6 +58,7 @@ export default function FormUI({ onChangeInputs, onClickSubmit }: FormProps) {
             onChange={onChangeInputs}
             {...register("passwordConfirm")}
           />
+          <div>{formState.errors.passwordConfirm?.message}</div>
         </S.PassConfirmWrapper>
         <S.ButtonWrapper>
           <S.Button>Register</S.Button>
