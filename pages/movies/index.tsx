@@ -15,6 +15,7 @@ const MoviePage = () => {
       );
       console.log("result:", result);
       console.log("result.data:", result.data);
+      setData(result.data);
     } catch (error) {
       console.log("error.message:", error.message);
     }
