@@ -16,6 +16,14 @@ const Boxes = styled.div`
   margin: 20px;
 `;
 
+const SecondWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  height: 400px;
+  overflow-x: scroll;
+  background: lightblue;
+`;
+
 const AxisPage = () => {
   const onScrollEvent = (event: WheelEvent<HTMLDivElement>) => {
     const delta = Math.max(
@@ -51,11 +59,11 @@ const AxisPage = () => {
       <span>This poriton will be second portions!</span>
       <span>This poriton will be second portions!</span>
       <span>This poriton will be second portions!</span>
-      {new Array(10).fill(1).map((index) => (
-        <div>
+      <SecondWrapper>
+        {new Array(10).fill(1).map((index) => (
           <Boxes>BOX</Boxes>
-        </div>
-      ))}
+        ))}
+      </SecondWrapper>
     </>
   );
 };
