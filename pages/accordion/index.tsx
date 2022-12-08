@@ -13,7 +13,7 @@ export default function Accordion() {
   return (
     <>
       <div>Antd Accordion</div>
-      <Collapse accordion expandIconPosition="right" style={{ width: 300 }}>
+      <Collapse accordion expandIconPosition="right">
         <Panel header="This is panel header 1" key="1">
           <p>{text}</p>
         </Panel>
