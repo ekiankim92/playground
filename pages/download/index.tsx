@@ -55,7 +55,7 @@ export default function Download() {
     console.log("id:", event.target.id);
   };
 
-  const onClickDownload = (event) => {
+  const onClickDownload = () => {
     // event.preventDefault();
     if (!id) alert("please select the language");
   };
