@@ -7,12 +7,18 @@ const Wrapper = styled.div`
   border: 1px solid #000;
 `;
 
+const Button = styled.button`
+  width: 200px;
+  height: 40px;
+  border: none;
+`;
+
 export default function Email() {
   const mailto = "www.email.com";
   const label = "this is email";
 
   const onClickEmail = () => {
-    window.location.href = `mailto: geoidk@gmail.com`;
+    window.location.href = `mailto: @gmail.com`;
     console.log((window.location.href = `mailto: geoidk@gmail.com`));
   };
 
@@ -22,6 +28,9 @@ export default function Email() {
       <div>I will be sending out emails here</div>
       <ButtonMailto mailto={mailto} label={label} />
       <button onClick={onClickEmail}>Write an email</button>
+      <Button>
+        <a href="mailto: @gmail.com">Click to send an email!!</a>
+      </Button>
     </>
   );
 }
