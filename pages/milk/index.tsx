@@ -1,4 +1,6 @@
+import Milk from "../../src/unit/milk/milk.container";
+
 const MilkPage = () => {
-  return <div />;
+  return <Milk />;
 };
 export default MilkPage;
