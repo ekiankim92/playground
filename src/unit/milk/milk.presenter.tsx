@@ -24,6 +24,11 @@ export default function MilkUI() {
           <S.SnorkelWrapper>
             <S.SnorkelImg src="milk/snorkel.png" />
           </S.SnorkelWrapper>
+          <S.SnorkelLine />
+          <S.SnorkelArrow />
+          <S.SnorkelB>
+            <S.B>B</S.B>
+          </S.SnorkelB>
         </S.LeftWrapper>
         <S.PhoneImg src="milk/phone.png" />
         <S.ScreenImg src="milk/screen.png" />

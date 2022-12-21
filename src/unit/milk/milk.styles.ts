@@ -23,6 +23,17 @@ const SlidePlane = keyframes`
     }
 `;
 
+const SlideSnorkel = keyframes`
+    from {
+        transform: translatex(0px) translatey(0px);
+        opacity: 0;
+    }
+    to {
+        transform: translatex(53px) translatey(-44px);
+        opacity: 1;
+    }
+`;
+
 export const Wrapper = styled.div`
   width: 100%;
   height: 600px;
@@ -118,6 +129,7 @@ export const CarB = styled.div`
   right: 148px;
   top: 50px;
   animation: ${SlideCar} 5s infinite;
+  z-index: 1;
 `;
 
 export const B = styled.div`
@@ -172,6 +184,7 @@ export const PlantB = styled.div`
   top: 183px;
   right: 180px;
   animation: ${SlidePlane} 3s infinite;
+  z-index: 1;
 `;
 
 export const SnorkelWrapper = styled.div`
@@ -189,6 +202,42 @@ export const SnorkelWrapper = styled.div`
 export const SnorkelImg = styled.img`
   width: 47px;
   height: 47px;
+`;
+
+export const SnorkelLine = styled.div`
+  width: 88px;
+  border: 1px dashed #9696cf;
+  position: absolute;
+  transform: rotate(-40deg);
+  right: 92px;
+  bottom: 78px;
+`;
+
+export const SnorkelArrow = styled.div`
+  position: absolute;
+  color: #fff;
+  width: 0px;
+  height: 0px;
+  border: 12px solid #9696cf;
+  border-color: transparent transparent transparent #9696cf;
+  transform: rotate(-40deg);
+  right: 88px;
+  bottom: 96px;
+`;
+
+export const SnorkelB = styled.div`
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: #90ee90;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 136px;
+  bottom: 38px;
+  z-index: 1;
+  animation: ${SlideSnorkel} 6s infinite;
 `;
 
 export const RightWrapper = styled.div`
