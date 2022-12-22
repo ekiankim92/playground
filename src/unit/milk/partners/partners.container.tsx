@@ -57,18 +57,14 @@ export default function Partners() {
       <div>Introducing Buxi Partners</div>
       <Slider
         {...settings}
-        autoplay={true}
+        autoplay={false}
         autoplaySpeed={2000}
         // centerPadding={"100"}
-        // rows={1}
+        rows={1}
         // swipeToSlide
       >
         <S.FirstSlideWrapper>
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>4</span>
-          <span>5</span>
+          <S.BowlImg src="bowl2.png" />
         </S.FirstSlideWrapper>
         <S.SecondWrapper>
           <h2>Second</h2>

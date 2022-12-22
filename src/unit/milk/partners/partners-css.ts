@@ -18,8 +18,12 @@ export const Wrapper = styled.div`
 
 export const FirstSlideWrapper = styled.div`
   background: purple;
-  height: 80px;
   text-align: center;
+`;
+
+export const BowlImg = styled.img`
+  width: 100%;
+  height: 100%;
 `;
 
 export const SecondWrapper = styled.div`
