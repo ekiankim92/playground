@@ -7,9 +7,11 @@ export default function Partners() {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 2000,
+    autoplaySpeed: 2000,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
+    cssEase: "linear",
     style: {
       width: "100%",
       height: 180,
@@ -55,14 +57,7 @@ export default function Partners() {
     <S.Wrapper>
       <div>buxi Partners</div>
       <div>Introducing Buxi Partners</div>
-      <Slider
-        {...settings}
-        autoplay={false}
-        autoplaySpeed={2000}
-        // centerPadding={"100"}
-        rows={1}
-        // swipeToSlide
-      >
+      <Slider {...settings}>
         <S.FirstSlideWrapper>
           <S.BowlImg src="bowl2.png" />
         </S.FirstSlideWrapper>
