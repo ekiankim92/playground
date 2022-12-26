@@ -7,17 +7,17 @@ export default function Partners() {
   const settings = {
     dots: true,
     infinite: true,
+    autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
     slidesToShow: 5,
     slidesToScroll: 1,
     cssEase: "linear",
     style: {
-      width: "100%",
+      width: "80%",
       height: 180,
       display: "flex",
       alignItems: "center",
-      background: "lightblue",
     },
     responsive: [
       {
