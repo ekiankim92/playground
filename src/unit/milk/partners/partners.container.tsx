@@ -26,7 +26,7 @@ export default function Partners() {
           slidesToShow: 3,
           slidesToScroll: 3,
           style: {
-            background: "blue",
+            // background: "blue",
           },
         },
       },
