@@ -73,24 +73,32 @@ export default function Benefits() {
       </S.InfoWrapper>
       <S.SecondWrapper>
         <S.Contribute style={contributeStyle}>
+          <S.Title>Incentives for Contribution</S.Title>
           <p>
             Reduces user-acquisition cost by sharing the customer pool among the
             aligned service companies
           </p>
         </S.Contribute>
         <S.Customers style={customerStyle}>
+          <S.Title>Customer Pool Sharing</S.Title>
           <p>
             This is part of the customers where people will connect with one
             another
           </p>
         </S.Customers>
         <S.Marketing style={marketingStyle}>
+          <S.Title>Effective Marketing</S.Title>
           <p>Markting will prevail through the companies core value</p>
         </S.Marketing>
         <S.Shake style={shakeStyle}>
+          <S.Title>Global Partnership</S.Title>
           <p>Other companies will come together with sharing one common goal</p>
         </S.Shake>
       </S.SecondWrapper>
+      <S.BoxWrapper>
+        <S.Test1>BOX 1</S.Test1>
+        <S.Test2>BOX 2</S.Test2>
+      </S.BoxWrapper>
     </S.Wrapper>
   );
 }
