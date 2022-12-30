@@ -96,8 +96,18 @@ export default function Benefits() {
         </S.Shake>
       </S.SecondWrapper>
       <S.BoxWrapper>
-        <S.Test1>BOX 1</S.Test1>
-        <S.Test2>BOX 2</S.Test2>
+        <S.BoxOneWrapper>
+          <S.Test1>BOX 1</S.Test1>
+        </S.BoxOneWrapper>
+        <S.BoxTwoWrapper>
+          <S.Test2>BOX 2</S.Test2>
+        </S.BoxTwoWrapper>
+        <S.BoxThreeWrapper>
+          <S.Test3>BOX 3</S.Test3>
+        </S.BoxThreeWrapper>
+        <S.BoxFourWrapper>
+          <S.Test4>BOX 4</S.Test4>
+        </S.BoxFourWrapper>
       </S.BoxWrapper>
     </S.Wrapper>
   );

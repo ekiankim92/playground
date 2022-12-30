@@ -79,24 +79,91 @@ export const Shake = styled.div`
 `;
 
 export const BoxWrapper = styled.div`
-  width: 600px;
+  width: 1000px;
   display: flex;
-  background: lightyellow;
-  position: relative;
+  justify-content: space-evenly;
+  background: lightblue;
+`;
+
+export const BoxOneWrapper = styled.div`
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightcoral;
+`;
+
+const Expand = keyframes`
+    from {
+        width: 160px;
+        height: 160px;
+    }
+    to {
+        width: 200px;
+        height: 200px;
+    }
 `;
 
 export const Test1 = styled.div`
+  width: 160px;
+  height: 160px;
   border: 1px solid #000;
+  text-align: center;
+  animation: ${Expand} 2s ease;
+  animation-delay: 2s;
+`;
+
+export const BoxTwoWrapper = styled.div`
   width: 200px;
   height: 200px;
-  position: relative;
-  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: khaki;
 `;
 
 export const Test2 = styled.div`
+  width: 160px;
+  height: 160px;
   border: 1px solid #000;
+  text-align: center;
+  animation: ${Expand} 2s ease;
+  animation-delay: 4s;
+`;
+
+export const BoxThreeWrapper = styled.div`
   width: 200px;
   height: 200px;
-  position: relative;
-  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: beige;
+`;
+
+export const Test3 = styled.div`
+  width: 160px;
+  height: 160px;
+  border: 1px solid #000;
+  text-align: center;
+  animation: ${Expand} 2s ease;
+  animation-delay: 6s;
+`;
+
+export const BoxFourWrapper = styled.div`
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightgreen;
+`;
+
+export const Test4 = styled.div`
+  width: 160px;
+  height: 160px;
+  border: 1px solid #000;
+  text-align: center;
+  animation: ${Expand} 2s ease;
+  animation-delay: 8s;
 `;
