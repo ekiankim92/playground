@@ -110,7 +110,7 @@ export const Test1 = styled.div`
   height: 160px;
   border: 1px solid #000;
   text-align: center;
-  animation: ${Expand} 2s ease;
+  animation: ${Expand} 2s infinite;
   animation-delay: 2s;
 `;
 
@@ -128,8 +128,8 @@ export const Test2 = styled.div`
   height: 160px;
   border: 1px solid #000;
   text-align: center;
-  animation: ${Expand} 2s ease;
   animation-delay: 4s;
+  animation: ${Expand} 2s infinite;
 `;
 
 export const BoxThreeWrapper = styled.div`
@@ -138,7 +138,7 @@ export const BoxThreeWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: beige;
+  background: lightgreen;
 `;
 
 export const Test3 = styled.div`
@@ -148,6 +148,7 @@ export const Test3 = styled.div`
   text-align: center;
   animation: ${Expand} 2s ease;
   animation-delay: 6s;
+  animation-iteration-count: 2;
 `;
 
 export const BoxFourWrapper = styled.div`
@@ -156,7 +157,7 @@ export const BoxFourWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: lightgreen;
+  background: beige;
 `;
 
 export const Test4 = styled.div`
@@ -164,6 +165,7 @@ export const Test4 = styled.div`
   height: 160px;
   border: 1px solid #000;
   text-align: center;
-  animation: ${Expand} 2s ease;
+  animation: ${Expand} 2s;
   animation-delay: 8s;
+  animation-iteration-count: 2;
 `;
