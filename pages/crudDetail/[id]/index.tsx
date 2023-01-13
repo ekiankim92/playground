@@ -1,10 +1,16 @@
 import axios from "axios";
 import { ChangeEvent, useState } from "react";
 
-export default function TodoDetail() {
+import { useRouter } from "next/router";
+
+export default function TodoDetail({ todoListById }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [todoDetail, setTodoDetail] = useState([]);
+
+  const router = useRouter();
+
+  console.log("router:", router.query.id);
+  console.log("todoListById:", todoListById);
 
   const updateTodo = async ({ id, title, content }) => {
     const result = await axios.put(
@@ -33,6 +39,13 @@ export default function TodoDetail() {
   return (
     <>
       <h1>This is detail page</h1>
+      {/* {todoListById?.map((el) => (
+        <div key={el.id}>
+          <div>{el.title}</div>
+          <div>{el.content}</div>
+          <button>Edit</button>
+        </div>
+      ))} */}
     </>
   );
 }
