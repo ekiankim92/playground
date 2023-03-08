@@ -7,6 +7,7 @@ export default function ContextUI() {
 
   console.log("isContext:", isContext);
   console.log("!isContext:", !isContext);
+  console.log("!!isContext:", !!isContext);
 
   return (
     <S.Wrapper>
