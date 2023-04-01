@@ -15,59 +15,65 @@ export default function Highchart() {
     xAxis: {
       categories: ["2023", "2038"],
       gridLineColor: "",
-      labels: {
-        overflow: "justify",
-        style: {
-          fontSize: "10px",
-        },
-      },
-      plotLines: [
-        {
-          color: "red",
-          dashStyle: "dash",
-          zIndex: 4,
-          width: 4,
-          value: "test",
-          label: {
-            text: "bench mark",
-            align: "center",
-            rotation: 0,
-            x: -15,
-            y: -3,
-            style: {
-              color: "red",
-            },
-          },
-        },
-      ],
+      gridLineWidth: 10,
+      // labels: {
+      //   overflow: "justify",
+      //   style: {
+      //     fontSize: "10px",
+      //   },
+      // },
     },
     yAxis: {
+      min: 0,
       title: {
         text: "Fruit eaten",
       },
+      gridLineWidth: 1,
+      gridLineColor: "#efefef",
+      plotLines: [
+        {
+          color: "#FF0000",
+          dashStyle: "dash",
+          width: 2,
+          value: 4,
+          label: {
+            text: "oranges",
+            align: "center",
+          },
+        },
+        {
+          color: "lightcoral",
+          dashStyle: "dot",
+          width: 2,
+          value: 1,
+          label: {
+            text: "apples",
+            align: "left",
+          },
+        },
+      ],
     },
     legend: {
       enabled: false,
       // enabled: true,
     },
     plotOptions: {
-      series: {
-        borderWidth: 4,
+      column: {
+        stacking: "normal",
         dataLabels: {
-          enabled: true,
-          format: "{point.y:.1f}%",
+          enabled: false,
         },
       },
     },
     series: [
       {
-        name: "",
-        data: [1, 4],
+        name: "standard",
+        data: [4, 3],
       },
-      // {
-      //   name: "John",
-      //   data: [5, 7, 3],
-      // },
+      {
+        name: "target",
+        data: [0, 1],
+      },
     ],
   };
 
