@@ -57,22 +57,57 @@ export default function Highchart() {
       enabled: false,
       // enabled: true,
     },
+    colors: [
+      {
+        pattern: {
+          patternIndex: 1,
+        },
+      },
+    ],
+
     plotOptions: {
       column: {
         stacking: "normal",
+        colorByPoint: false,
         dataLabels: {
           enabled: false,
+        },
+      },
+      series: {
+        color: {
+          pattern: {
+            path: {
+              d: "M 0 0 L 10 10 M 9 -1 L 11 1 M -1 9 L 1 11",
+              strokeWidth: 2,
+            },
+            width: 10,
+            height: 10,
+            opacity: 0.4,
+          },
         },
       },
     },
     series: [
       {
         name: "standard",
-        data: [4, 3],
+        // data: [4, 3],
+        data: [4, null],
+        color: "lightgray",
       },
       {
         name: "target",
-        data: [0, 1],
+        data: [null, 3],
+        // color: "lightcoral",
+        color: {
+          pattern: {
+            color: "#d11",
+          },
+        },
+      },
+      {
+        name: "dummy",
+        data: [null, 1],
+        color: "#000",
       },
     ],
   };
