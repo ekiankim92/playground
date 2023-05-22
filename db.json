@@ -41,6 +41,24 @@
       "age": "47",
       "gender": "male",
       "id": 8
+    },
+    {
+      "name": "Rocket",
+      "age": 13,
+      "gender": "male",
+      "id": 2
+    },
+    {
+      "name": "Groot",
+      "age": 247,
+      "gender": "male",
+      "id": 3
+    },
+    {
+      "name": "Drake",
+      "age": 37,
+      "gender": "male",
+      "id": 3
     }
   ]
 }

@@ -69,4 +69,32 @@ export const dummyData = [
     firstHeight: 75,
     secondHeight: 100,
   },
+  {
+    id: 3,
+    name: "David",
+    gender: "Male",
+    firstHeight: 25,
+    secondHeight: 90,
+  },
+  {
+    id: 2,
+    name: "Bruno",
+    gender: "Male",
+    firstHeight: 15,
+    secondHeight: 20,
+  },
+  {
+    id: 10,
+    name: "Michille",
+    gender: "Female",
+    firstHeight: 85,
+    secondHeight: 62,
+  },
+  {
+    id: 7,
+    name: "Jasmine",
+    gender: "Female",
+    firstHeight: 55,
+    secondHeight: 65,
+  },
 ];
