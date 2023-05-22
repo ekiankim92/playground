@@ -10,9 +10,14 @@ export default function IdList({
   newList,
   idx,
 }: any) {
-  const onClickDelete = (idx) => () => {
-    const result = newList.splice(idx, 1);
-    setNewList(result);
+  //   const onClickDelete = (id) => () => {
+  //     const updatedList = newList.filter((item, idx) => item.id !== idx);
+  //     setNewList(updatedList);
+  //   };
+
+  const onClickDelete = (index) => () => {
+    const updatedList = newList.filter((_, itemIndex) => itemIndex !== index);
+    setNewList(updatedList);
   };
 
   return (
@@ -23,7 +28,7 @@ export default function IdList({
         <TableRow>{el.gender}</TableRow>
         <TableRow>{el.firstHeight}</TableRow>
         <TableRow>{el.secondHeight}</TableRow>
-        <DeleteButton id={el.id} onClick={onClickDelete(el.id)}>
+        <DeleteButton id={el.id} onClick={onClickDelete(idx)}>
           Delete
         </DeleteButton>
       </Wrapper>
