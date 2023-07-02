@@ -1,3 +1,5 @@
+import styled from "@emotion/styled";
+
 const ReportTemplate = () => {
   const styles = {
     page: {
@@ -33,9 +35,9 @@ const ReportTemplate = () => {
   return (
     <>
       <div style={styles.page}>
-        <div>
+        <Wrapper>
           <h1>Report Heading That Spans More Than Just One Line</h1>
-        </div>
+        </Wrapper>
 
         <div style={styles.spacer2}></div>
 
@@ -92,3 +94,8 @@ const ReportTemplate = () => {
 };
 
 export default ReportTemplate;
+
+const Wrapper = styled.div`
+  width: 120px;
+  height: 200px;
+`;
