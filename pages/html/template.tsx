@@ -36,8 +36,17 @@ const ReportTemplate = () => {
     <>
       <div style={styles.page}>
         <Wrapper>
-          <h1>Report Heading That Spans More Than Just One Line</h1>
+          {/* <h1>Report Heading That Spans More Than Just One Line</h1> */}
         </Wrapper>
+
+        <table style={{ border: "1px solid #000" }}>
+          <th>1.</th>
+          <tr>hehe</tr>
+          <th>2.</th>
+          <tr>hehe</tr>
+          <th>3.</th>
+          <tr>hehe</tr>
+        </table>
 
         <div style={styles.spacer2}></div>
 
