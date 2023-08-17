@@ -10,8 +10,8 @@ export default function PieGraph() {
       type: "pie",
     },
     title: {
-      text: "Browser market shares in March, 2022",
-      align: "left",
+      text: "건물명 타입률",
+      align: "center",
     },
     plotOptions: {
       pie: {
