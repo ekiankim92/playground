@@ -70,6 +70,13 @@ export default function HtmlFile() {
         </button>
         <div ref={reportTemplateRef}>
           <ReportTemplate />
+          <ReportTemplate />
+          <ReportTemplate />
+          <ReportTemplate />
+          <ReportTemplate />
+          <ReportTemplate />
+          <ReportTemplate />
+          <ReportTemplate />
         </div>
       </Wrapper>
     </>
