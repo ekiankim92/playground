@@ -11,11 +11,11 @@ const settings = {
   slidesToScroll: 1,
   autoplay: false,
   cssEase: "linear",
-  //   appendDots: (dots) => (
-  //     <DotsContainer>
-  //       <ul style={{ margin: "0px" }}> {dots} </ul>
-  //     </DotsContainer>
-  //   ),
+  appendDots: (dots) => (
+    <DotsContainer>
+      <ul style={{ margin: "0px" }}> {dots} </ul>
+    </DotsContainer>
+  ),
 };
 
 export default function ReactSlider() {
